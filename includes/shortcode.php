@@ -533,10 +533,11 @@ add_shortcode('user_pdfs', function () {
 		while ($query->have_posts()) {
 			$query->the_post();
 			$pdf_link = get_post_meta(get_the_ID(), 'pdf_link', true);
+			$pdf_link2= get_post_meta(get_the_ID(),'pdf_link2', true);
 
 			// Append PDF viewer parameters
 			$pdf_link .= '#zoom=120&toolbar=0&navpanes=0';
-
+			$pdf_link2 .= '#zoom=120&toolbar=0&navpanes=0';
 			// Add iframe with styled container (border radius, box shadow, padding)
 			$output .= '<iframe src="' . esc_url($pdf_link) . '" 
 				style="width: 100%; height: 100vh; border: none; margin: 0; padding: 0; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);" 
