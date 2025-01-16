@@ -575,7 +575,7 @@ add_shortcode('user_pdfs', function () {
 				const pdfList = document.getElementById('pdf-list');
 				const pdfLinks = document.querySelectorAll('.pdf-link');
 				const pdfViewer = document.getElementById('pdf-viewer');
-
+				pdfViewer.style.display="none";
 				// Toggle PDF list visibility on button click
 				viewDocumentsBtn.addEventListener('click', () => {
 					pdfList.style.display = pdfList.style.display === 'none' ? 'block' : 'none';
@@ -586,6 +586,7 @@ add_shortcode('user_pdfs', function () {
 					link.addEventListener('click', (event) => {
 						event.preventDefault(); // Prevent default link behavior
 						const pdfUrl = event.target.getAttribute('data-pdf');
+						pdfViewer.style.display="block";
 						pdfViewer.src = pdfUrl; // Update iframe src
 					});
 				});
