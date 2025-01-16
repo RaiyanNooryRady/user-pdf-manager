@@ -533,11 +533,12 @@ add_shortcode('user_pdfs', function () {
 			$query->the_post();
 			$pdf_link = get_post_meta(get_the_ID(), 'pdf_link', true);
 			$pdf_link2 = get_post_meta(get_the_ID(), 'pdf_link2', true);
+			$pdf_link3 = get_post_meta(get_the_ID(), 'pdf_link3', true);
 
 			// Append PDF viewer parameters
 			$pdf_link .= '#zoom=120&toolbar=0&navpanes=0';
 			$pdf_link2 .= '#zoom=120&toolbar=0&navpanes=0';
-			
+			$pdf_link3 .= '#zoom=120&toolbar=0&navpanes=0';
 			?>
 			<div style="text-align: center; margin-bottom: 20px;">
 				<button id="view-documents-btn"
@@ -558,6 +559,12 @@ add_shortcode('user_pdfs', function () {
 						<a href="#" class="pdf-link" data-pdf="<?php echo esc_url($pdf_link2); ?>"
 							style="text-decoration: none; color: #007bff; font-size: 16px;">
 							Document 2
+						</a>
+					</li>
+					<li>
+						<a href="#" class="pdf-link" data-pdf="<?php echo esc_url($pdf_link3); ?>"
+							style="text-decoration: none; color: #007bff; font-size: 16px;">
+							Document 3
 						</a>
 					</li>
 				</ul>
