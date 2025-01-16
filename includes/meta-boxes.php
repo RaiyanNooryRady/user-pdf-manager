@@ -40,6 +40,9 @@ add_action('save_post', function ($post_id) {
     
     for ($i = 1; $i <= 10; $i++) {
         // Generate the field name dynamically
+        // if (isset($_POST['pdf_link1'])) {
+        //     update_post_meta($post_id, 'pdf_link1', sanitize_text_field($_POST['pdf_link1']));
+        // }
         $field_name = 'pdf_link' . $i;
     
         // Check if the field is set in $_POST
