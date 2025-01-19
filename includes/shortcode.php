@@ -34,8 +34,8 @@ add_shortcode('user_pdfs', function () {
 			?>
 			<div style="text-align: center; margin-bottom: 20px;">
 				<button id="view-documents-btn"
-					style="padding: 10px 20px; font-size: 16px; background-color: #007bff; color: white; border: none; border-radius: 8px; cursor: pointer;">
-					View Documents
+					style="padding: 10px 20px; font-size: 16px; background-color: transparent; font-weight:600px; color: #264694; border: 2px solid #264694; border-radius: 8px; cursor: pointer;">
+					VIEW DOCUMENTS
 				</button>
 			</div>
 
@@ -50,7 +50,7 @@ add_shortcode('user_pdfs', function () {
 					
 					<li>
 						<a href="#" class="pdf-link" data-pdf="<?php echo esc_url(${"pdf_link$i"}); ?>"
-							style="text-decoration: none; color: #007bff; font-size: 16px;">
+							style="text-decoration: none; color: #264694;; font-size: 16px;">
 							Document <?php echo $i; ?>
 						</a>
 					</li>
