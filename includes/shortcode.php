@@ -39,7 +39,7 @@ add_shortcode('user_pdfs', function () {
 			<h4 class="policy-header">My Tempcover policies</h4>
 
 			<div class="upm-not-assigned-pdf my-3">
-				<div class="card">
+				<div class="card shadow">
 					<h5 class="policy-header">Current & Upcoming</h5>
 					<h5 class="policy-header">Past policies</h5>
 				</div>

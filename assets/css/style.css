@@ -9,6 +9,9 @@
     color: var(--upm-primary-color);
     text-align: center;
 }
+.upm-not-assigned-pdf .card{
+    padding: 20px 20px;
+}
 .view-documents-container {
   text-align: center;
   margin-bottom: 20px;
