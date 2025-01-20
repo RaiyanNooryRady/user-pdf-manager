@@ -31,9 +31,8 @@ add_shortcode('user_pdfs', function () {
 			<div class="before-pdf-header text-light text-center py-3">As a tempcover member enjoy a discount on policies lasting
 				one day or more</div>
 
-			<div style="text-align: center; margin-bottom: 20px;">
-				<button id="view-documents-btn"
-					style="padding: 10px 20px; font-size: 16px; background-color: transparent; font-weight:600px; color: #264694; border: 2px solid #264694; border-radius: 8px; cursor: pointer;">
+			<div class="view-documents-container">
+				<button id="view-documents-btn">
 					VIEW DOCUMENTS
 				</button>
 			</div>
@@ -44,8 +43,7 @@ add_shortcode('user_pdfs', function () {
 					for ($i = 1; $i <= 10; $i++) {
 						?>
 						<li>
-							<a href="#" class="pdf-link" data-pdf="<?php echo esc_url(${"pdf_link$i"}); ?>"
-								style="text-decoration: none; color: #264694; font-size: 16px;">
+							<a href="#" class="pdf-link" data-pdf="<?php echo esc_url(${"pdf_link$i"}); ?>">
 								Document <?php echo $i; ?>
 							</a>
 						</li>
