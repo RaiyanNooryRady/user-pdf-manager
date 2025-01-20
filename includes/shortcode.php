@@ -35,6 +35,8 @@ add_shortcode('user_pdfs', function () {
 				<a href="#" class="p-3 btn-get-quote text-decoration-none">Get a quote</a>
 			</div>
 
+			<h2 class="upm-author">Hello <?php echo esc_html($current_user->display_name) ?></h2>
+
 			<div class="view-documents-container">
 				<button id="view-documents-btn">
 					VIEW DOCUMENTS

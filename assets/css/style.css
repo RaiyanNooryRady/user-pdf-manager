@@ -5,6 +5,10 @@
 .before-pdf-header {
   background-color: var(--upm-secondary-color);
 }
+.upm-author{
+    color: var(--upm-primary-color);
+    text-align: center;
+}
 .view-documents-container {
   text-align: center;
   margin-bottom: 20px;
