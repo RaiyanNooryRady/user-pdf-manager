@@ -12,6 +12,16 @@
 .upm-not-assigned-pdf .card{
     padding: 20px 20px;
 }
+.upm-not-assigned-pdf .card .no-policy{
+    background-color: var(--upm-primary-color);
+    margin-top: 80px;
+    padding: 0px 10px;
+}
+.no-policy img.img-no-policy{
+    margin-top: -140px;
+    width: 350px;
+    height: auto;
+}
 .view-documents-container {
   text-align: center;
   margin-bottom: 20px;
