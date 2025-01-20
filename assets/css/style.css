@@ -1,3 +1,49 @@
-.before-pdf-header{
-    background-color: #789E02;
+.before-pdf-header {
+  background-color: #789e02;
+}
+#pdf-list {
+  display: none;
+  text-align: center;
+  margin-bottom: 20px;
+}
+#pdf-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+#pdf-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+.pdf-viewer-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  position: relative;
+  width: 80%;
+  height: 80%;
+  max-width: 1400px;
+}
+#close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+#pdf-viewer {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
 }
