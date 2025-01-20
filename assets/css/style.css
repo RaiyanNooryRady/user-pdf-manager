@@ -1,5 +1,9 @@
+:root {
+    --upm-primary-color: #264694;
+    --upm-secondary-color: #789e02;
+}
 .before-pdf-header {
-  background-color: #789e02;
+  background-color: var(--upm-secondary-color);
 }
 .view-documents-container {
   text-align: center;
@@ -10,10 +14,15 @@
   font-size: 16px;
   background-color: transparent;
   font-weight: 600px;
-  color: #264694;
-  border: 2px solid #264694;
+  color: var(--upm-primary-color);
+  border: 2px solid var(--upm-primary-color);
   border-radius: 8px;
   cursor: pointer;
+}
+.btn-get-quote, .btn-get-quote:hover, .btn-get-quote:active, .btn-get-quote:focus{
+    background-color: var(--upm-secondary-color);
+    color: white;
+    border-radius: 8px;
 }
 #pdf-list {
   display: none;
@@ -26,7 +35,7 @@
 }
 #pdf-list ul li a.pdf-link {
   text-decoration: none;
-  color: #264694;
+  color: var(--upm-primary-color);
   font-size: 16px;
 }
 #pdf-modal {
@@ -54,7 +63,7 @@
   position: absolute;
   top: 10px;
   right: 10px;
-  background: #264694;
+  background: var(--upm-primary-color);
   color: white;
   border: none;
   padding: 5px 10px;
