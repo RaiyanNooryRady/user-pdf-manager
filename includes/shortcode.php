@@ -38,7 +38,11 @@ add_shortcode('user_pdfs', function () {
 			<h2 class="upm-author">Hello <?php echo esc_html($current_user->display_name) ?></h2>
 			<h4 class="policy-header">My Tempcover policies</h4>
 
-			<div class="upm-not-assigned-pdf">
+			<div class="upm-not-assigned-pdf my-3">
+				<div class="card">
+					<h5 class="policy-header">Current & Upcoming</h5>
+					<h5 class="policy-header">Past policies</h5>
+				</div>
 
 			</div>
 			<div class="upm-assigned-pdf">
