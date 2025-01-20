@@ -55,35 +55,56 @@ add_shortcode('user_pdfs', function () {
 			</div>
 			<?php // } else { ?>
 			<div class="upm-assigned-pdf">
+				<h2 class="policy-header">Policy</h2>
+				<div class="card shadow">
+					<h4 class="text-light text-center">Summary</h4>
+					<div class="summary-fields text-center text-light">
+						<h4>Start Date & Time</h4>
+						<p>17-12-2024 13:45</p>
+						<h4>End Date & Time</h4>
+						<p>17-12-2024 13:45</p>
+					</div>
+					<div class="summary-fields text-center text-light">
+						<h4>Policy Status</h4>
+						<p>17-12-2024 13:45</p>
+					</div>
+
+				</div>
+
 				<div class="view-documents-container">
 					<button id="view-documents-btn">
 						VIEW DOCUMENTS
 					</button>
 				</div>
 
-				<div id="pdf-list">
-					<ul>
-						<?php
-						for ($i = 1; $i <= 10; $i++) {
-							?>
-							<li>
-								<a href="#" class="pdf-link" data-pdf="<?php echo esc_url(${"pdf_link$i"}); ?>">
-									Document <?php echo $i; ?>
-								</a>
-							</li>
+				<div class="card shadow">
+
+					<div id="pdf-list">
+						<ul>
 							<?php
-						}
-						?>
-					</ul>
+							for ($i = 1; $i <= 10; $i++) {
+								?>
+								<li>
+									<a href="#" class="pdf-link" data-pdf="<?php echo esc_url(${"pdf_link$i"}); ?>">
+										Document <?php echo $i; ?>
+									</a>
+								</li>
+								<?php
+							}
+							?>
+						</ul>
+					</div>
+
+					<!-- Modal -->
+					<div id="pdf-modal">
+						<div class="pdf-viewer-container">
+							<button id="close-modal">X</button>
+							<iframe id="pdf-viewer" src="" allowfullscreen></iframe>
+						</div>
+					</div>
+
 				</div>
 
-				<!-- Modal -->
-				<div id="pdf-modal">
-					<div class="pdf-viewer-container">
-						<button id="close-modal">X</button>
-						<iframe id="pdf-viewer" src="" allowfullscreen></iframe>
-					</div>
-				</div>
 
 			</div>
 			<?php // } ?>
