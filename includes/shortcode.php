@@ -37,7 +37,7 @@ add_shortcode('user_pdfs', function () {
 
 			<h2 class="upm-author">Hello <?php echo esc_html($current_user->display_name) ?></h2>
 			<h4 class="policy-header">My Tempcover policies</h4>
-
+			<?php //if(empty($pdf_link1 && $pdf_link2 && $pdf_link3 && $pdf_link4 && $pdf_link5 && $pdf_link6 && $pdf_link7 && $pdf_link8 && $pdf_link9 && $pdf_link10 )){ ?>
 			<div class="upm-not-assigned-pdf my-3">
 				<div class="card shadow">
 					<h5 class="policy-header">Current & Upcoming</h5>
@@ -50,6 +50,7 @@ add_shortcode('user_pdfs', function () {
 				</div>
 
 			</div>
+			<?php // } else { ?>
 			<div class="upm-assigned-pdf">
 				<div class="view-documents-container">
 					<button id="view-documents-btn">
@@ -82,7 +83,7 @@ add_shortcode('user_pdfs', function () {
 				</div>
 
 			</div>
-
+			<?php // } ?>
 
 			<script>
 				document.addEventListener('DOMContentLoaded', () => {
