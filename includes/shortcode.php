@@ -32,6 +32,7 @@ add_shortcode('user_pdfs', function () {
 
 			
 			?>
+			<h2 class="text-center text-danger">Hello Check</h2>
 			<div style="text-align: center; margin-bottom: 20px;">
 				<button id="view-documents-btn"
 					style="padding: 10px 20px; font-size: 16px; background-color: transparent; font-weight:600px; color: #264694; border: 2px solid #264694; border-radius: 8px; cursor: pointer;">

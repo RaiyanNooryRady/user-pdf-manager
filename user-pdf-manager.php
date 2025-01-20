@@ -13,3 +13,4 @@ if (!defined('ABSPATH'))
 require_once plugin_dir_path(__FILE__) . 'includes/custom-post-type.php';
 require_once plugin_dir_path(__FILE__) . 'includes/meta-boxes.php';
 require_once plugin_dir_path(__FILE__) . 'includes/shortcode.php';
+require_once plugin_dir_path(__FILE__) . 'includes/enqueue-scripts.php';
