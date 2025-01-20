@@ -36,36 +36,44 @@ add_shortcode('user_pdfs', function () {
 			</div>
 
 			<h2 class="upm-author">Hello <?php echo esc_html($current_user->display_name) ?></h2>
+			<h4 class="policy-header">My Tempcover policies</h4>
 
-			<div class="view-documents-container">
-				<button id="view-documents-btn">
-					VIEW DOCUMENTS
-				</button>
+			<div class="upm-not-assigned-pdf">
+
 			</div>
-
-			<div id="pdf-list">
-				<ul>
-					<?php
-					for ($i = 1; $i <= 10; $i++) {
-						?>
-						<li>
-							<a href="#" class="pdf-link" data-pdf="<?php echo esc_url(${"pdf_link$i"}); ?>">
-								Document <?php echo $i; ?>
-							</a>
-						</li>
-						<?php
-					}
-					?>
-				</ul>
-			</div>
-
-			<!-- Modal -->
-			<div id="pdf-modal">
-				<div class="pdf-viewer-container">
-					<button id="close-modal">X</button>
-					<iframe id="pdf-viewer" src="" allowfullscreen></iframe>
+			<div class="upm-assigned-pdf">
+				<div class="view-documents-container">
+					<button id="view-documents-btn">
+						VIEW DOCUMENTS
+					</button>
 				</div>
+
+				<div id="pdf-list">
+					<ul>
+						<?php
+						for ($i = 1; $i <= 10; $i++) {
+							?>
+							<li>
+								<a href="#" class="pdf-link" data-pdf="<?php echo esc_url(${"pdf_link$i"}); ?>">
+									Document <?php echo $i; ?>
+								</a>
+							</li>
+							<?php
+						}
+						?>
+					</ul>
+				</div>
+
+				<!-- Modal -->
+				<div id="pdf-modal">
+					<div class="pdf-viewer-container">
+						<button id="close-modal">X</button>
+						<iframe id="pdf-viewer" src="" allowfullscreen></iframe>
+					</div>
+				</div>
+
 			</div>
+
 
 			<script>
 				document.addEventListener('DOMContentLoaded', () => {
