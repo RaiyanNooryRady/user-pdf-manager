@@ -28,7 +28,7 @@ add_shortcode('user_pdfs', function () {
 			}
 			?>
 
-			<div class="before-pdf-header text-light text-center py-3">As a tempcover member enjoy a discount on policies lasting
+			<div class="before-pdf-header text-light text-center py-3 mb-3">As a tempcover member enjoy a discount on policies lasting
 				one day or more</div>
 
 			<div class="view-documents-container">
