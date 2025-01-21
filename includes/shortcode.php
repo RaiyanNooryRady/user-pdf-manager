@@ -92,6 +92,7 @@ add_shortcode('user_pdfs', function () {
 									<?php
 									for ($i = 1; $i <= 10; $i++) {
 										?>
+										<?php if(${"pdf_link$i"}!="#zoom=120&toolbar=0&navpanes=0"): ?>
 										<li class="py-2">
 											
 											<a href="#" class="pdf-link bi bi-file-earmark-pdf-fill" data-pdf="<?php echo esc_url(${"pdf_link$i"}); ?>">
@@ -104,6 +105,7 @@ add_shortcode('user_pdfs', function () {
 											</a>
 										</li>
 										<?php
+										endif;
 									}
 									?>
 								</ul>
