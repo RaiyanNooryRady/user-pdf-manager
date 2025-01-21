@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Toggle PDF list visibility
   viewDocumentsBtn.addEventListener("click", () => {
-    pdfListContainer.style.display = pdfListContainer.style.display === "none" ? "block" : "none";
+    pdfListContainer.style.display = pdfListContainer.style.display == "block" ? "none" : "block";
   });
 
   // Show modal with PDF
