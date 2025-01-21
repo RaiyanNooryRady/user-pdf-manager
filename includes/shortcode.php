@@ -78,45 +78,46 @@ add_shortcode('user_pdfs', function () {
 						</div>
 
 					</div>
-					<?php if($policy_status!='Expired'): ?>
-					<div class="view-documents-container mt-3">
-						<button id="view-documents-btn">
-							VIEW DOCUMENTS
-						</button>
-					</div>
+					<?php if ($policy_status != 'Expired'): ?>
+						<div class="view-documents-container mt-3">
+							<button id="view-documents-btn">
+								VIEW DOCUMENTS
+							</button>
+						</div>
 
-					<div id="pdf-list-container" class="card shadow">
-						<h4 class="text-light text-center">Policy Documents</h4>
-						<div id="pdf-list" class="text-center bg-light rounded">
-							<ul>
-								<?php
-								for ($i = 1; $i <= 10; $i++) {
-									?>
-									<li>
-										<a href="#" class="pdf-link" data-pdf="<?php echo esc_url(${"pdf_link$i"}); ?>">
-											<?php 
-											$document_text= basename(${"pdf_link$i"});
-											$document_text= explode('#', $document_text)[0];
-											echo $document_text; 
-											
-											?>
-										</a>
-									</li>
+						<div id="pdf-list-container" class="card shadow">
+							<h4 class="text-light text-center">Policy Documents</h4>
+							<div id="pdf-list" class="text-center bg-light rounded">
+								<ul>
 									<?php
-								}
-								?>
-							</ul>
-						</div>
+									for ($i = 1; $i <= 10; $i++) {
+										?>
+										<li class="py-2">
+											
+											<a href="#" class="pdf-link bi bi-file-earmark-pdf-fill" data-pdf="<?php echo esc_url(${"pdf_link$i"}); ?>">
+												<?php
+												$document_text = basename(${"pdf_link$i"});
+												$document_text = explode('#', $document_text)[0];
+												echo $document_text;
 
-						<!-- Modal -->
-						<div id="pdf-modal">
-							<div class="pdf-viewer-container">
-								<button id="close-modal">X</button>
-								<iframe id="pdf-viewer" src="" allowfullscreen></iframe>
+												?>
+											</a>
+										</li>
+										<?php
+									}
+									?>
+								</ul>
 							</div>
-						</div>
 
-					</div>
+							<!-- Modal -->
+							<div id="pdf-modal">
+								<div class="pdf-viewer-container">
+									<button id="close-modal">X</button>
+									<iframe id="pdf-viewer" src="" allowfullscreen></iframe>
+								</div>
+							</div>
+
+						</div>
 					<?php endif; ?>
 				</div>
 			<?php }
