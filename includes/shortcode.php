@@ -58,15 +58,15 @@ add_shortcode('user_pdfs', function () {
 				<h2 class="policy-header">Policy</h2>
 				<div class="card shadow">
 					<h4 class="text-light text-center">Summary</h4>
-					<div class="summary-fields text-center text-light">
-						<h4>Start Date & Time</h4>
+					<div class="summary-fields text-center bg-light rounded-top">
+						<h5>Start Date & Time</h4>
 						<p>17-12-2024 13:45</p>
-						<h4>End Date & Time</h4>
+						<h5>End Date & Time</h4>
 						<p>17-12-2024 13:45</p>
 					</div>
-					<div class="summary-fields text-center text-light">
-						<h4>Policy Status</h4>
-						<p>17-12-2024 13:45</p>
+					<div class="summary-fields text-center bg-light rounded-bottom">
+						<h5>Policy Status</h4>
+						<p>Expired</p>
 					</div>
 
 				</div>
@@ -107,48 +107,7 @@ add_shortcode('user_pdfs', function () {
 
 
 			</div>
-			<?php // } ?>
-
-			<script>
-				document.addEventListener('DOMContentLoaded', () => {
-					const viewDocumentsBtn = document.getElementById('view-documents-btn');
-					const pdfList = document.getElementById('pdf-list');
-					const pdfLinks = document.querySelectorAll('.pdf-link');
-					const modal = document.getElementById('pdf-modal');
-					const pdfViewer = document.getElementById('pdf-viewer');
-					const closeModal = document.getElementById('close-modal');
-
-					// Toggle PDF list visibility
-					viewDocumentsBtn.addEventListener('click', () => {
-						pdfList.style.display = pdfList.style.display === 'none' ? 'block' : 'none';
-					});
-
-					// Show modal with PDF
-					pdfLinks.forEach(link => {
-						link.addEventListener('click', (event) => {
-							event.preventDefault();
-							const pdfUrl = event.target.getAttribute('data-pdf');
-							pdfViewer.src = pdfUrl;
-							modal.style.display = 'flex';
-						});
-					});
-
-					// Close modal
-					closeModal.addEventListener('click', () => {
-						modal.style.display = 'none';
-						pdfViewer.src = ''; // Clear the iframe source
-					});
-
-					// Close modal when clicking outside the iframe
-					modal.addEventListener('click', (event) => {
-						if (event.target === modal) {
-							modal.style.display = 'none';
-							pdfViewer.src = '';
-						}
-					});
-				});
-			</script>
-			<?php
+			<?php // } 
 		}
 
 		wp_reset_postdata();

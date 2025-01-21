@@ -25,6 +25,12 @@
 .upm-assigned-pdf .card{
     background-color: var(--upm-primary-color);
 }
+.summary-fields{
+  margin-top: 1px;
+}
+.summary-fields h5{
+  color: var(--upm-primary-color);
+}
 .view-documents-container {
   text-align: center;
   margin-bottom: 20px;
