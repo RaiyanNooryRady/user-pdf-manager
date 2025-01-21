@@ -78,7 +78,7 @@ add_shortcode('user_pdfs', function () {
 						</div>
 
 					</div>
-
+					<?php if($policy_status!='Expired'): ?>
 					<div class="view-documents-container mt-3">
 						<button id="view-documents-btn">
 							VIEW DOCUMENTS
@@ -112,8 +112,7 @@ add_shortcode('user_pdfs', function () {
 						</div>
 
 					</div>
-
-
+					<?php endif; ?>
 				</div>
 			<?php }
 		}
