@@ -26,6 +26,21 @@ add_shortcode('user_pdfs', function () {
 				${"pdf_link$i"} = get_post_meta(get_the_ID(), "pdf_link$i", true);
 				${"pdf_link$i"} .= '#zoom=120&toolbar=0&navpanes=0';
 			}
+			$policy_status = get_post_meta(get_the_ID(), 'policy_status', true);
+			$start_date_time = get_post_meta(get_the_ID(), 'start_date_time', true);
+			// Convert to DateTime object
+			$date = new DateTime($start_date_time);
+
+			// Format to desired output
+			$start_date_time = $date->format('d-m-Y h:i A');
+
+			$end_date_time = get_post_meta(get_the_ID(), 'end_date_time', true);
+			// Convert to DateTime object
+			$date = new DateTime($end_date_time);
+
+			// Format to desired output
+			$end_date_time = $date->format('d-m-Y h:i A');
+
 			?>
 
 			<div class="before-pdf-header text-light text-center py-3 mb-3">As a tempcover member enjoy a discount on policies
@@ -37,7 +52,7 @@ add_shortcode('user_pdfs', function () {
 
 			<h2 class="upm-author">Hello <?php echo esc_html($current_user->display_name) ?></h2>
 			<h4 class="policy-header">My Tempcover policies</h4>
-			<?php //if(empty($pdf_link1 && $pdf_link2 && $pdf_link3 && $pdf_link4 && $pdf_link5 && $pdf_link6 && $pdf_link7 && $pdf_link8 && $pdf_link9 && $pdf_link10 )){ ?>
+			<?php if(empty($pdf_link1 && $pdf_link2 && $pdf_link3 && $pdf_link4 && $pdf_link5 && $pdf_link6 && $pdf_link7 && $pdf_link8 && $pdf_link9 && $pdf_link10 )){ ?>
 			<div class="upm-not-assigned-pdf my-3">
 				<div class="card shadow">
 					<h5 class="policy-header">Current & Upcoming</h5>
@@ -53,33 +68,37 @@ add_shortcode('user_pdfs', function () {
 				</div>
 
 			</div>
-			<?php // } else { ?>
+			<?php  } else { ?>
 			<div class="upm-assigned-pdf">
 				<h2 class="policy-header">Policy</h2>
 				<div class="card shadow">
 					<h4 class="text-light text-center">Summary</h4>
 					<div class="summary-fields text-center bg-light rounded-top">
 						<h5>Start Date & Time</h4>
-						<p>17-12-2024 13:45</p>
-						<h5>End Date & Time</h4>
-						<p>17-12-2024 13:45</p>
+							<p><?php echo esc_html($start_date_time); ?></p>
+							<h5>End Date & Time</h5>
+							<p><?php echo esc_html($end_date_time); ?></p>
 					</div>
 					<div class="summary-fields text-center bg-light rounded-bottom">
 						<h5>Policy Status</h4>
-						<p>Expired</p>
+							<?php if (!empty($policy_status) && $policy_status == 'Expired'): ?>
+								<p class="policy-expired"><?php echo esc_html($policy_status); ?></p>
+							<?php else: ?>
+								<p class="policy-active"><?php echo esc_html($policy_status); ?></p>
+							<?php endif; ?>
 					</div>
 
 				</div>
 
-				<div class="view-documents-container">
+				<div class="view-documents-container mt-3">
 					<button id="view-documents-btn">
 						VIEW DOCUMENTS
 					</button>
 				</div>
 
-				<div class="card shadow">
-
-					<div id="pdf-list">
+				<div id="pdf-list-container" class="card shadow">
+					<h4 class="text-light text-center">Policy Documents</h4>
+					<div id="pdf-list" class="text-center bg-light rounded">
 						<ul>
 							<?php
 							for ($i = 1; $i <= 10; $i++) {
@@ -107,7 +126,7 @@ add_shortcode('user_pdfs', function () {
 
 
 			</div>
-			<?php // } 
+		<?php  } 
 		}
 
 		wp_reset_postdata();

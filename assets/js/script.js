@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const viewDocumentsBtn = document.getElementById("view-documents-btn");
-  const pdfList = document.getElementById("pdf-list");
+  const pdfListContainer = document.getElementById("pdf-list-container");
   const pdfLinks = document.querySelectorAll(".pdf-link");
   const modal = document.getElementById("pdf-modal");
   const pdfViewer = document.getElementById("pdf-viewer");
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Toggle PDF list visibility
   viewDocumentsBtn.addEventListener("click", () => {
-    pdfList.style.display = pdfList.style.display === "none" ? "block" : "none";
+    pdfListContainer.style.display = pdfListContainer.style.display === "none" ? "block" : "none";
   });
 
   // Show modal with PDF

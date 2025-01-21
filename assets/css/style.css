@@ -1,6 +1,7 @@
 :root {
     --upm-primary-color: #264694;
     --upm-secondary-color: #789e02;
+    ---upm-danger:red;
 }
 .before-pdf-header {
   background-color: var(--upm-secondary-color);
@@ -31,6 +32,12 @@
 .summary-fields h5{
   color: var(--upm-primary-color);
 }
+.summary-fields .policy-expired{
+  color: var(---upm-danger);
+}
+.summary-fields .policy-active{
+  color: var(--upm-secondary-color);
+}
 .view-documents-container {
   text-align: center;
   margin-bottom: 20px;
@@ -50,10 +57,11 @@
     color: white;
     border-radius: 8px;
 }
-#pdf-list {
+#pdf-list-container{
   display: none;
+}
+#pdf-list {
   text-align: center;
-  margin-bottom: 20px;
 }
 #pdf-list ul {
   list-style-type: none;
