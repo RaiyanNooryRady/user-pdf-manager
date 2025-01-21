@@ -28,6 +28,7 @@ add_shortcode('user_pdfs', function () {
 			}
 			$policy_status = get_post_meta(get_the_ID(), 'policy_status', true);
 			$start_date_time = get_post_meta(get_the_ID(), 'start_date_time', true);
+
 			// Convert to DateTime object
 			$date = new DateTime($start_date_time);
 
@@ -52,86 +53,76 @@ add_shortcode('user_pdfs', function () {
 
 			<h2 class="upm-author">Hello <?php echo esc_html($current_user->display_name) ?></h2>
 			<h4 class="policy-header">My Tempcover policies</h4>
-			<?php if(empty($pdf_link1 && $pdf_link2 && $pdf_link3 && $pdf_link4 && $pdf_link5 && $pdf_link6 && $pdf_link7 && $pdf_link8 && $pdf_link9 && $pdf_link10 )){ ?>
-			<div class="upm-not-assigned-pdf my-3">
-				<div class="card shadow">
-					<h5 class="policy-header">Current & Upcoming</h5>
-					<div class="no-policy text-center py-5 rounded-4">
-						<img src="<?php echo plugin_dir_url(__FILE__) . '../assets/images/no-policy.svg'; ?>" class="img-no-policy"
-							alt="">
-						<h4 class="text-light">You have no active temporary policies</h4>
-						<div class="text-light text-center py-3">
-							<a href="#" class="p-3 btn-get-quote text-decoration-none">Get a quote</a>
+			<?php
+			$check_not_assigned = $pdf_link1 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link2 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link3 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link4 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link5 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link6 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link7 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link8 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link9 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link10 == "#zoom=120&toolbar=0&navpanes=0";
+			if ($check_not_assigned) {
+				@include plugin_dir_path(__FILE__) . 'template-parts/not-assigned-pdf.php' ?: 'Template file not found!';
+			} else { ?>
+				<div class="upm-assigned-pdf">
+					<h2 class="policy-header">Policy</h2>
+					<div class="card shadow">
+						<h4 class="text-light text-center">Summary</h4>
+						<div class="summary-fields text-center bg-light rounded-top">
+							<h5>Start Date & Time</h4>
+								<p><?php echo esc_html($start_date_time); ?></p>
+								<h5>End Date & Time</h5>
+								<p><?php echo esc_html($end_date_time); ?></p>
 						</div>
-					</div>
-					<h5 class="policy-header">Past policies</h5>
-				</div>
+						<div class="summary-fields text-center bg-light rounded-bottom">
+							<h5>Policy Status</h4>
+								<?php if (!empty($policy_status) && $policy_status == 'Expired'): ?>
+									<p class="policy-expired"><?php echo esc_html($policy_status); ?></p>
+								<?php else: ?>
+									<p class="policy-active"><?php echo esc_html($policy_status); ?></p>
+								<?php endif; ?>
+						</div>
 
-			</div>
-			<?php  } else { ?>
-			<div class="upm-assigned-pdf">
-				<h2 class="policy-header">Policy</h2>
-				<div class="card shadow">
-					<h4 class="text-light text-center">Summary</h4>
-					<div class="summary-fields text-center bg-light rounded-top">
-						<h5>Start Date & Time</h4>
-							<p><?php echo esc_html($start_date_time); ?></p>
-							<h5>End Date & Time</h5>
-							<p><?php echo esc_html($end_date_time); ?></p>
-					</div>
-					<div class="summary-fields text-center bg-light rounded-bottom">
-						<h5>Policy Status</h4>
-							<?php if (!empty($policy_status) && $policy_status == 'Expired'): ?>
-								<p class="policy-expired"><?php echo esc_html($policy_status); ?></p>
-							<?php else: ?>
-								<p class="policy-active"><?php echo esc_html($policy_status); ?></p>
-							<?php endif; ?>
 					</div>
 
-				</div>
+					<div class="view-documents-container mt-3">
+						<button id="view-documents-btn">
+							VIEW DOCUMENTS
+						</button>
+					</div>
 
-				<div class="view-documents-container mt-3">
-					<button id="view-documents-btn">
-						VIEW DOCUMENTS
-					</button>
-				</div>
-
-				<div id="pdf-list-container" class="card shadow">
-					<h4 class="text-light text-center">Policy Documents</h4>
-					<div id="pdf-list" class="text-center bg-light rounded">
-						<ul>
-							<?php
-							for ($i = 1; $i <= 10; $i++) {
-								?>
-								<li>
-									<a href="#" class="pdf-link" data-pdf="<?php echo esc_url(${"pdf_link$i"}); ?>">
-										Document <?php echo $i; ?>
-									</a>
-								</li>
+					<div id="pdf-list-container" class="card shadow">
+						<h4 class="text-light text-center">Policy Documents</h4>
+						<div id="pdf-list" class="text-center bg-light rounded">
+							<ul>
 								<?php
-							}
-							?>
-						</ul>
+								for ($i = 1; $i <= 10; $i++) {
+									?>
+									<li>
+										<a href="#" class="pdf-link" data-pdf="<?php echo esc_url(${"pdf_link$i"}); ?>">
+											Document <?php echo $i; ?>
+										</a>
+									</li>
+									<?php
+								}
+								?>
+							</ul>
+						</div>
+
+						<!-- Modal -->
+						<div id="pdf-modal">
+							<div class="pdf-viewer-container">
+								<button id="close-modal">X</button>
+								<iframe id="pdf-viewer" src="" allowfullscreen></iframe>
+							</div>
+						</div>
+
 					</div>
 
-					<!-- Modal -->
-					<div id="pdf-modal">
-						<div class="pdf-viewer-container">
-							<button id="close-modal">X</button>
-							<iframe id="pdf-viewer" src="" allowfullscreen></iframe>
-						</div>
-					</div>
 
 				</div>
-
-
-			</div>
-		<?php  } 
+			<?php }
 		}
 
 		wp_reset_postdata();
 	} else {
-		return '<p>No PDFs found.</p>';
+
+		@include plugin_dir_path(__FILE__) . 'template-parts/not-assigned-pdf.php' ?: 'Template file not found!';
+
 	}
 });
 
