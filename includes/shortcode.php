@@ -94,7 +94,12 @@ add_shortcode('user_pdfs', function () {
 									?>
 									<li>
 										<a href="#" class="pdf-link" data-pdf="<?php echo esc_url(${"pdf_link$i"}); ?>">
-											Document <?php echo $i; ?>
+											<?php 
+											$document_text= basename(${"pdf_link$i"});
+											$document_text= explode('#', $document_text)[0];
+											echo $document_text; 
+											
+											?>
 										</a>
 									</li>
 									<?php
