@@ -2,7 +2,8 @@
 
 add_shortcode('user_pdfs', function () {
 	if (!is_user_logged_in()) {
-		return '<p>You must be logged in to view your PDFs.</p>';
+		@include plugin_dir_path(__FILE__) . 'template-parts/not-assigned-pdf.php' ?: 'Template file not found!';
+		return '<h4 class="text-center py-2 fw-bold">You must be logged in to view your PDFs.</h4>';
 	}
 
 	$current_user = wp_get_current_user();
@@ -42,33 +43,24 @@ add_shortcode('user_pdfs', function () {
 			// Format to desired output
 			$end_date_time = $date->format('d-m-Y h:i A');
 
-			?>
+			@include plugin_dir_path(__FILE__) . 'template-parts/hello-author.php' ?: 'Template file not found!';
 
-			<div class="before-pdf-header text-light text-center py-3 mb-3">As a tempcover member enjoy a discount on policies
-				lasting
-				one day or more</div>
-			<div class="text-light text-center py-3 mb-3">
-				<a href="#" class="p-3 btn-get-quote text-decoration-none">Get a quote</a>
-			</div>
-
-			<h2 class="upm-author">Hello <?php echo esc_html($current_user->display_name) ?></h2>
-			<h4 class="policy-header">My Tempcover policies</h4>
-			<?php
 			$check_not_assigned = $pdf_link1 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link2 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link3 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link4 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link5 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link6 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link7 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link8 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link9 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link10 == "#zoom=120&toolbar=0&navpanes=0";
+
 			if ($check_not_assigned) {
 				@include plugin_dir_path(__FILE__) . 'template-parts/not-assigned-pdf.php' ?: 'Template file not found!';
 			} else { ?>
 				<div class="upm-assigned-pdf">
 					<h2 class="policy-header">Policy</h2>
 					<div class="card shadow">
-						<h4 class="text-light text-center">Summary</h4>
-						<div class="summary-fields text-center bg-light rounded-top">
+						<h4 class="text-light text-center py-2 fw-bold">Summary</h4>
+						<div class="summary-fields text-center bg-light rounded-top py-3">
 							<h5>Start Date & Time</h4>
 								<p><?php echo esc_html($start_date_time); ?></p>
 								<h5>End Date & Time</h5>
 								<p><?php echo esc_html($end_date_time); ?></p>
 						</div>
-						<div class="summary-fields text-center bg-light rounded-bottom">
+						<div class="summary-fields text-center bg-light rounded-bottom py-3">
 							<h5>Policy Status</h4>
 								<?php if (!empty($policy_status) && $policy_status == 'Expired'): ?>
 									<p class="policy-expired"><?php echo esc_html($policy_status); ?></p>
@@ -86,8 +78,8 @@ add_shortcode('user_pdfs', function () {
 						</div>
 
 						<div id="pdf-list-container" class="card shadow">
-							<h4 class="text-light text-center">Policy Documents</h4>
-							<div id="pdf-list" class="text-center bg-light rounded">
+							<h4 class="text-light text-center py-2">Policy Documents</h4>
+							<div id="pdf-list" class="text-center bg-light rounded py-3">
 								<ul>
 									<?php
 									for ($i = 1; $i <= 10; $i++) {
@@ -128,6 +120,7 @@ add_shortcode('user_pdfs', function () {
 		wp_reset_postdata();
 	} else {
 
+		@include plugin_dir_path(__FILE__) . 'template-parts/hello-author.php' ?: 'Template file not found!';
 		@include plugin_dir_path(__FILE__) . 'template-parts/not-assigned-pdf.php' ?: 'Template file not found!';
 
 	}

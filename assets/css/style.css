@@ -3,12 +3,53 @@
     --upm-secondary-color: #789e02;
     ---upm-danger:red;
 }
+@font-face {
+  font-family: 'Brandon Text Bold';
+  src: url('../fonts/HvDTrial_Brandon_Text_Black_Italic-BF6514e9eb74ba6.otf') format('otf'),
+       url('../fonts/HvDTrial_Brandon_Text_Black-BF6514e9eb54e57.otf') format('otf'),
+       url('../fonts/HvDTrial_Brandon_Text_Bold_Italic-BF6514e9eb4fc07.otf') format('otf'),
+       url('../fonts/HvDTrial_Brandon_Text_Bold-BF6514e9eb720dc.otf') format('otf');
+       font-weight: bold;
+       font-style: normal;
+}
+@font-face {
+  font-family: 'Brandon Text Light';
+  src: 
+       url('../fonts/HvDTrial_Brandon_Text_Light_Italic-BF6514e9ea886e7.otf') format('otf'),
+       url('../fonts/HvDTrial_Brandon_Text_Light-BF6514e9eb80fbd.otf') format('otf');
+       font-weight:lighter;
+       font-style: normal;
+}
+@font-face {
+  font-family: 'Brandon Text Medium';
+  src: url('../fonts/HvDTrial_Brandon_Text_Medium_Italic-BF6514e9eb2abb6.otf') format('otf'),
+       url('../fonts/HvDTrial_Brandon_Text_Regular_Italic-BF6514e9eb6a5a1.otf') format('otf'),
+       url('../fonts/HvDTrial_Brandon_Text_Medium-BF6514e9eb272a3.otf') format('otf'),
+       url('../fonts/HvDTrial_Brandon_Text_Regular-BF6514e9eb617a0.otf') format('otf');
+       font-weight: 500;
+       font-style: normal;
+}
+@font-face {
+  font-family: 'Brandon Text Thin';
+  src: url('../fonts/HvDTrial_brandon_Text_Thin_Italic-BF6514e9eb27295.otf') format('otf'),
+       url('../fonts/HvDTrial_Brandon_Text_Thin-BF6514e9eb4f386.otf') format('otf');
+       font-weight: 400;
+       font-style: normal;
+}
+
 .before-pdf-header {
   background-color: var(--upm-secondary-color);
+  font-family: 'Brandon Text Bold', sans-serif;
+}
+.upm-author{
+  font-family: 'Brandon Text Bold', sans-serif;
+  font-weight: bold;
 }
 .upm-author,.policy-header{
     color: var(--upm-primary-color);
     text-align: center;
+    font-family: 'Brandon Text Bold', sans-serif;
+    font-weight: bold;
 }
 .upm-not-assigned-pdf .card{
     padding: 20px 20px;
@@ -17,30 +58,39 @@
     background-color: var(--upm-primary-color);
     margin-top: 80px;
     padding: 0px 10px;
+    font-family: 'Brandon Text Bold', sans-serif;
 }
 .no-policy img.img-no-policy{
     margin-top: -140px;
     width: 350px;
     height: auto;
+    font-family: 'Brandon Text Bold', sans-serif;
 }
 .upm-assigned-pdf .card{
     background-color: var(--upm-primary-color);
+    font-family: 'Brandon Text Bold', sans-serif;
 }
 .summary-fields{
   margin-top: 1px;
+  font-family: 'Brandon Text Bold', sans-serif;
 }
 .summary-fields h5{
   color: var(--upm-primary-color);
+  font-family: 'Brandon Text Bold', sans-serif;
+  font-weight: bold;
 }
 .summary-fields .policy-expired{
   color: var(---upm-danger);
+  font-family: 'Brandon Text Bold', sans-serif;
 }
 .summary-fields .policy-active{
   color: var(--upm-secondary-color);
+  font-family: 'Brandon Text Bold', sans-serif;
 }
 .view-documents-container {
   text-align: center;
   margin-bottom: 20px;
+  font-family: 'Brandon Text Bold', sans-serif;
 }
 #view-documents-btn {
   padding: 10px 20px;
@@ -51,26 +101,32 @@
   border: 2px solid var(--upm-primary-color);
   border-radius: 8px;
   cursor: pointer;
+  font-family: 'Brandon Text Bold', sans-serif;
 }
 .btn-get-quote, .btn-get-quote:hover, .btn-get-quote:active, .btn-get-quote:focus{
     background-color: var(--upm-secondary-color);
     color: white;
     border-radius: 8px;
+    font-family: 'Brandon Text Bold', sans-serif;
 }
 #pdf-list-container{
   display: none;
+  font-family: 'Brandon Text Bold', sans-serif;
 }
 #pdf-list {
   text-align: center;
+  font-family: 'Brandon Text Bold', sans-serif;
 }
 #pdf-list ul {
   list-style-type: none;
   padding: 0;
+  font-family: 'Brandon Text Bold', sans-serif;
 }
 #pdf-list ul li a.pdf-link {
   text-decoration: none;
   color: var(--upm-primary-color);
   font-size: 16px;
+  font-family: 'Brandon Text Bold', sans-serif;
 }
 #pdf-modal {
   display: none;
@@ -83,6 +139,7 @@
   z-index: 1000;
   align-items: center;
   justify-content: center;
+  font-family: 'Brandon Text Bold', sans-serif;
 }
 .pdf-viewer-container {
   background: #fff;
@@ -92,6 +149,7 @@
   width: 80%;
   height: 80%;
   max-width: 1400px;
+  font-family: 'Brandon Text Bold', sans-serif;
 }
 #close-modal {
   position: absolute;
@@ -102,10 +160,12 @@
   border: none;
   padding: 5px 10px;
   cursor: pointer;
+  font-family: 'Brandon Text Bold', sans-serif;
 }
 #pdf-viewer {
   width: 100%;
   height: 100%;
   border: none;
   border-radius: 12px;
+  font-family: 'Brandon Text Bold', sans-serif;
 }
