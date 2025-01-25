@@ -82,10 +82,12 @@
 .summary-fields .policy-expired{
   color: var(---upm-danger);
   font-family: 'Brandon Text Bold', sans-serif;
+  font-weight: bold;
 }
 .summary-fields .policy-active{
   color: var(--upm-secondary-color);
   font-family: 'Brandon Text Bold', sans-serif;
+  font-weight: bold;
 }
 .view-documents-container {
   text-align: center;
@@ -144,7 +146,6 @@
 .pdf-viewer-container {
   background: #fff;
   padding: 20px;
-  border-radius: 12px;
   position: relative;
   width: 80%;
   height: 80%;
@@ -161,11 +162,17 @@
   padding: 5px 10px;
   cursor: pointer;
   font-family: 'Brandon Text Bold', sans-serif;
+  padding: 10px 20px;
+  font-size: 28px;
+}
+@media(max-width: 767px){
+  #close-modal{
+    font-size: 18px;
+  }
 }
 #pdf-viewer {
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: 12px;
   font-family: 'Brandon Text Bold', sans-serif;
 }
