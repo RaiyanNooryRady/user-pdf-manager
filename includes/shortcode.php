@@ -52,7 +52,7 @@ add_shortcode('user_pdfs', function () {
 			} else { ?>
 				<div class="upm-assigned-pdf">
 					<h2 class="policy-header">Policy</h2>
-					<div class="card shadow">
+					<div class="card shadow-sm">
 						<h4 class="text-light text-center py-2 fw-bold">Summary</h4>
 						<div class="summary-fields text-center bg-light rounded-top py-3">
 							<h5>Start Date & Time</h4>
@@ -77,7 +77,7 @@ add_shortcode('user_pdfs', function () {
 							</button>
 						</div>
 
-						<div id="pdf-list-container" class="card shadow">
+						<div id="pdf-list-container" class="card shadow-sm">
 							<h4 class="text-light text-center py-2">Policy Documents</h4>
 							<div id="pdf-list" class="text-center bg-light rounded py-3">
 								<ul>

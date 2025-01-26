@@ -4,6 +4,9 @@
     ---upm-danger:red;
 }
 
+p{
+  font-size: 18px;
+}
 .before-pdf-header {
   background-color: var(--upm-secondary-color);
   font-family: Arial, sans-serif;
@@ -11,6 +14,7 @@
 .upm-author{
   font-family: Arial, sans-serif;
   font-weight: bold;
+  font-size: 42px;
 }
 .upm-author,.policy-header{
     color: var(--upm-primary-color);
@@ -33,9 +37,17 @@
     height: auto;
     font-family: Arial, sans-serif;
 }
+.upm-assigned-pdf{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .upm-assigned-pdf .card{
     background-color: var(--upm-primary-color);
     font-family: Arial, sans-serif;
+    width: 100%;
+    max-width: 900px;
 }
 .summary-fields{
   margin-top: 1px;
@@ -63,7 +75,7 @@
 }
 #view-documents-btn {
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 18px;
   background-color: transparent;
   font-weight: 600px;
   color: var(--upm-primary-color);
@@ -77,6 +89,7 @@
     color: white;
     border-radius: 8px;
     font-family: Arial, sans-serif;
+    padding: 10px 40px;
 }
 #pdf-list-container{
   display: none;
@@ -94,7 +107,7 @@
 #pdf-list ul li a.pdf-link {
   text-decoration: none;
   color: var(--upm-primary-color);
-  font-size: 16px;
+  font-size: 18px;
   font-family: Arial, sans-serif;
 }
 #pdf-modal {
