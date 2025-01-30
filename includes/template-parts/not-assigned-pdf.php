@@ -1,5 +1,5 @@
 <div class="upm-not-assigned-pdf my-3">
-    <div class="card shadow">
+    <div class="card shadow-sm">
         <h5 class="policy-header">Current & Upcoming</h5>
         <div class="no-policy text-center py-5 rounded-4">
             <img src="<?php echo plugins_url() . '/user-pdf-manager/assets/images/no-policy.svg'; ?>"
