@@ -15,9 +15,10 @@ p{
   font-family: Arial, sans-serif;
   font-weight: bold;
   font-size: 42px;
+  color: var(--upm-primary-color) !important;
 }
 .upm-author,.policy-header{
-    color: var(--upm-primary-color);
+    color: var(--upm-primary-color) !important;
     text-align: center;
     font-family: Arial, sans-serif;
     font-weight: bold;

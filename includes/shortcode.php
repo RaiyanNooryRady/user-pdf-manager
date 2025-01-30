@@ -63,9 +63,9 @@ add_shortcode('user_pdfs', function () {
 						<div class="summary-fields text-center bg-light rounded-bottom py-3">
 							<h5>Policy Status</h4>
 								<?php if (!empty($policy_status) && $policy_status == 'Expired'): ?>
-									<p class="policy-expired"><?php echo esc_html($policy_status); ?></p>
+									<h5 class="policy-expired"><?php echo esc_html($policy_status); ?></h5>
 								<?php else: ?>
-									<p class="policy-active"><?php echo esc_html($policy_status); ?></p>
+									<h5 class="policy-active"><?php echo esc_html($policy_status); ?></h5>
 								<?php endif; ?>
 						</div>
 
