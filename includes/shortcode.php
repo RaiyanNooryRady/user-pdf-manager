@@ -51,7 +51,7 @@ add_shortcode('user_pdfs', function () {
 				@include plugin_dir_path(__FILE__) . 'template-parts/not-assigned-pdf.php' ?: 'Template file not found!';
 			} else { ?>
 				<div class="upm-assigned-pdf">
-					<h2 class="policy-header">Policy</h2>
+					<h2 class="policy-header">Policies</h2>
 					<div class="card shadow-sm">
 						<h4 class="text-light text-center py-2 fw-bold">Summary</h4>
 						<div class="summary-fields text-center bg-light rounded-top py-3">

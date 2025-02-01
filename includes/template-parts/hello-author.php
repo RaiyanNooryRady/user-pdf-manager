@@ -6,4 +6,3 @@
 </div>
 
 <h2 class="upm-author">Hello <?php echo esc_html($current_user->display_name) ?></h2>
-<h4 class="policy-header">My Tempcover policies</h4>
