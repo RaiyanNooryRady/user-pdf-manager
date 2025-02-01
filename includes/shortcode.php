@@ -55,10 +55,10 @@ add_shortcode('user_pdfs', function () {
 					<div class="card shadow-sm">
 						<h4 class="text-light text-center py-2 fw-bold">Summary</h4>
 						<div class="summary-fields text-center bg-light rounded-top py-3">
-							<h5>Start Date & Time</h4>
-								<p><?php echo esc_html($start_date_time); ?></p>
-								<h5>End Date & Time</h5>
-								<p><?php echo esc_html($end_date_time); ?></p>
+							<h5>Start Date & Time</h5>
+							<p><?php echo esc_html($start_date_time); ?></p>
+							<h5>End Date & Time</h5>
+							<p><?php echo esc_html($end_date_time); ?></p>
 						</div>
 						<div class="summary-fields text-center bg-light rounded-bottom py-3">
 							<h5>Policy Status</h4>
@@ -84,19 +84,20 @@ add_shortcode('user_pdfs', function () {
 									<?php
 									for ($i = 1; $i <= 10; $i++) {
 										?>
-										<?php if(${"pdf_link$i"}!="#zoom=120&toolbar=0&navpanes=0"): ?>
-										<li class="py-2">
-											
-											<a href="#" class="pdf-link bi bi-file-earmark-pdf-fill" data-pdf="<?php echo esc_url(${"pdf_link$i"}); ?>">
-												<?php
-												$document_text = basename(${"pdf_link$i"});
-												$document_text = explode('#', $document_text)[0];
-												echo $document_text;
+										<?php if (${"pdf_link$i"} != "#zoom=120&toolbar=0&navpanes=0"): ?>
+											<li class="py-2">
 
-												?>
-											</a>
-										</li>
-										<?php
+												<a href="#" class="pdf-link bi bi-file-earmark-pdf-fill"
+													data-pdf="<?php echo esc_url(${"pdf_link$i"}); ?>">
+													<?php
+													$document_text = basename(${"pdf_link$i"});
+													$document_text = explode('#', $document_text)[0];
+													echo $document_text;
+
+													?>
+												</a>
+											</li>
+											<?php
 										endif;
 									}
 									?>
