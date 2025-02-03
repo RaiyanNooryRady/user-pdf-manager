@@ -28,6 +28,10 @@ add_shortcode('user_pdfs', function () {
 				${"pdf_link$i"} .= '#zoom=120&toolbar=0&navpanes=0';
 			}
 			$policy_status = get_post_meta(get_the_ID(), 'policy_status', true);
+			$upm_id_number= get_post_meta(get_the_ID(), 'upm_id_number',true);
+			$upm_full_name= get_post_meta(get_the_ID(), 'upm_full_name',true);
+			$upm_registration_number= get_post_meta(get_the_ID(), 'upm_registration_number',true);
+
 			$start_date_time = get_post_meta(get_the_ID(), 'start_date_time', true);
 
 			// Convert to DateTime object
@@ -55,6 +59,14 @@ add_shortcode('user_pdfs', function () {
 					<div class="card shadow-sm">
 						<h4 class="text-light text-center py-2 fw-bold"><?Php esc_html_e('Summary','user-pdf-manager') ?></h4>
 						<div class="summary-fields text-center bg-light rounded-top py-3">
+							<h5><?Php esc_html_e('ID Number','user-pdf-manager') ?></h5>
+							<p><?php echo esc_html($upm_id_number); ?></p>
+							<h5><?Php esc_html_e('Full Name','user-pdf-manager') ?></h5>
+							<p><?php echo esc_html($upm_full_name); ?></p>
+							<h5><?Php esc_html_e('Registration Number','user-pdf-manager') ?></h5>
+							<p><?php echo esc_html($upm_registration_number); ?></p>
+						</div>
+						<div class="summary-fields text-center bg-light py-3">
 							<h5><?Php esc_html_e('Start Date & Time','user-pdf-manager') ?></h5>
 							<p><?php echo esc_html($start_date_time); ?></p>
 							<h5><?Php esc_html_e('End Date & Time','user-pdf-manager') ?></h5>
