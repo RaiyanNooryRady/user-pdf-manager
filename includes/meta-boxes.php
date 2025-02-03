@@ -2,10 +2,10 @@
 // Add meta boxes for PDF URL and Username
 
 add_action('add_meta_boxes', function () {
-    add_meta_box('pdf_meta', 'PDF Details', 'render_pdf_meta_box', 'user_pdfs', 'normal', 'default');
+    add_meta_box('pdf_meta', 'PDF Details', 'user_pdf_manager_render_pdf_meta_box', 'user_pdfs', 'normal', 'default');
 });
 
-function render_pdf_meta_box($post)
+function user_pdf_manager_render_pdf_meta_box($post)
 {
     //username
     $username = get_post_meta($post->ID, 'username', true);
@@ -25,19 +25,19 @@ function render_pdf_meta_box($post)
     }
     ?>
     <p>
-        <label for="username">Username:</label><br>
+        <label for="username"><?php echo esc_html_e('Username','user-pdf-manager'); ?></label><br>
         <input type="text" name="username" id="username" value="<?php echo esc_attr($username); ?>" style="width:100%;">
     </p>
     <p>
-        <label for="start_date_time">Select Start Date & Time</label>
+        <label for="start_date_time"><?php echo esc_html_e('Select Start Date & Time','user-pdf-manager'); ?></label>
         <input type="datetime-local" name="start_date_time" id="start_date_time" value="<?php echo esc_attr($start_date_time); ?>" style="width:100%;">
     </p>
     <p>
-        <label for="end_date_time">Select End Date & Time</label>
+        <label for="end_date_time"><?php echo esc_html_e('Select End Date & Time','user-pdf-manager'); ?></label>
         <input type="datetime-local" name="end_date_time" id="end_date_time" value="<?php echo esc_attr($end_date_time); ?>" style="width:100%;">
     </p>
     <p>
-        <label for="policy_status">Policy Status:</label><br>
+        <label for="policy_status"><?php echo esc_html_e('Policy Status:','user-pdf-manager'); ?></label><br>
         <input type="text" name="policy_status" id="policy_status" value="<?php echo esc_attr($policy_status); ?>" style="width:100%;">
     </p>
     <?php
@@ -55,8 +55,7 @@ function render_pdf_meta_box($post)
     <?php
 }
 
-
-add_action('save_post', function ($post_id) {
+function user_pdf_manager_save_post($post_id){
     if (isset($_POST['username'])) {
         update_post_meta($post_id, 'username', sanitize_text_field($_POST['username']));
     }
@@ -71,15 +70,12 @@ add_action('save_post', function ($post_id) {
     }
     for ($i = 1; $i <= 10; $i++) {
         // Generate the field name dynamically
-        // if (isset($_POST['pdf_link1'])) {
-        //     update_post_meta($post_id, 'pdf_link1', sanitize_text_field($_POST['pdf_link1']));
-        // }
         $field_name = 'pdf_link' . $i;
-    
         // Check if the field is set in $_POST
         if (isset($_POST[$field_name])) {
             // Update the corresponding post meta
             update_post_meta($post_id, $field_name, sanitize_text_field($_POST[$field_name]));
         }
     }
-});
+}
+add_action('save_post', 'user_pdf_manager_save_post');
