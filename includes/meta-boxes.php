@@ -7,17 +7,20 @@ add_action('add_meta_boxes', function () {
 
 function user_pdf_manager_render_pdf_meta_box($post)
 {
+    // Add a nonce field to secure form submission
+    wp_nonce_field('user_pdf_manager_save_nonce_action', 'user_pdf_manager_save_nonce');
+
     //username
     $username = get_post_meta($post->ID, 'username', true);
 
     //start date and time
-    $start_date_time = get_post_meta($post->ID,'start_date_time', true);
+    $start_date_time = get_post_meta($post->ID, 'start_date_time', true);
 
     //end date and time
-    $end_date_time = get_post_meta($post->ID,'end_date_time', true);
+    $end_date_time = get_post_meta($post->ID, 'end_date_time', true);
 
     //policy status
-    $policy_status= get_post_meta($post->ID,'policy_status', true);
+    $policy_status = get_post_meta($post->ID, 'policy_status', true);
 
     // $pdf_link = get_post_meta($post->ID, 'pdf_link1', true);
     for ($i = 1; $i <= 10; $i++) {
@@ -25,45 +28,74 @@ function user_pdf_manager_render_pdf_meta_box($post)
     }
     ?>
     <p>
-        <label for="username"><?php esc_html_e('Username','user-pdf-manager'); ?></label><br>
+        <label for="username"><?php esc_html_e('Username', 'user-pdf-manager'); ?></label><br>
         <input type="text" name="username" id="username" value="<?php echo esc_attr($username); ?>" style="width:100%;">
     </p>
     <p>
-        <label for="start_date_time"><?php esc_html_e('Select Start Date & Time','user-pdf-manager'); ?></label>
-        <input type="datetime-local" name="start_date_time" id="start_date_time" value="<?php echo esc_attr($start_date_time); ?>" style="width:100%;">
+        <label for="start_date_time"><?php esc_html_e('Select Start Date & Time', 'user-pdf-manager'); ?></label>
+        <input type="datetime-local" name="start_date_time" id="start_date_time"
+            value="<?php echo esc_attr($start_date_time); ?>" style="width:100%;">
     </p>
     <p>
-        <label for="end_date_time"><?php esc_html_e('Select End Date & Time','user-pdf-manager'); ?></label>
-        <input type="datetime-local" name="end_date_time" id="end_date_time" value="<?php echo esc_attr($end_date_time); ?>" style="width:100%;">
+        <label for="end_date_time"><?php esc_html_e('Select End Date & Time', 'user-pdf-manager'); ?></label>
+        <input type="datetime-local" name="end_date_time" id="end_date_time" value="<?php echo esc_attr($end_date_time); ?>"
+            style="width:100%;">
     </p>
     <p>
-        <label for="policy_status"><?php esc_html_e('Policy Status:','user-pdf-manager'); ?></label><br>
-        <input type="text" name="policy_status" id="policy_status" value="<?php echo esc_attr($policy_status); ?>" style="width:100%;">
+        <label for="policy_status"><?php esc_html_e('Policy Status:', 'user-pdf-manager'); ?></label><br>
+        <input type="text" name="policy_status" id="policy_status" value="<?php echo esc_attr($policy_status); ?>"
+            style="width:100%;">
     </p>
     <?php
     //Displaying the custom meta fields in dashboard
     for ($i = 1; $i <= 10; $i++) {
         ?>
         <p>
-            <label for="pdf_link<?php echo $i; ?>"><?PHP esc_html_e('PDF URL','user-pdf-manager'); ?> <?php echo esc_html($i . ":"); ?></label><br>
-            <input type="text" name="pdf_link<?php echo $i; ?>" id="pdf_link<?php echo $i; ?>" value="<?php echo esc_attr(${"pdf_link$i"}); ?>" style="width:100%;">
+            <label for="pdf_link<?php echo $i; ?>"><?php esc_html_e('PDF URL', 'user-pdf-manager'); ?>
+                <?php echo esc_html($i . ":"); ?></label><br>
+            <input type="text" name="pdf_link<?php echo $i; ?>" id="pdf_link<?php echo $i; ?>"
+                value="<?php echo esc_attr(${"pdf_link$i"}); ?>" style="width:100%;">
         </p>
 
         <?php
     }
-    ?>
-    <?php
+?>
+<?php
 }
 
-function user_pdf_manager_save_post($post_id){
+function user_pdf_manager_save_post($post_id)
+{
+
+    // ✅ Step 1: Check if the nonce is set and valid
+
+    if (
+        !isset($_POST['user_pdf_manager_save_nonce']) ||
+        !wp_verify_nonce(sanitize_text_field($_POST['user_pdf_manager_save_nonce']), 'user_pdf_manager_save_nonce_action')
+    ) {
+        return;
+    }
+
+
+    // ✅ Step 2: Check if the user has permission to edit this post
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+
+    // ✅ Step 3: Prevent autosave from overwriting post meta
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+
+    // ✅ Step 4: Sanitize and save meta fields
+
     if (isset($_POST['username'])) {
         update_post_meta($post_id, 'username', sanitize_text_field($_POST['username']));
     }
-    if(isset($_POST['start_date_time'])) {
-        update_post_meta($post_id,'start_date_time', sanitize_text_field($_POST['start_date_time']));
+    if (isset($_POST['start_date_time'])) {
+        update_post_meta($post_id, 'start_date_time', sanitize_text_field($_POST['start_date_time']));
     }
-    if(isset($_POST['end_date_time'])) {
-        update_post_meta($post_id,'end_date_time', sanitize_text_field($_POST['end_date_time']));
+    if (isset($_POST['end_date_time'])) {
+        update_post_meta($post_id, 'end_date_time', sanitize_text_field($_POST['end_date_time']));
     }
     if (isset($_POST['policy_status'])) {
         update_post_meta($post_id, 'policy_status', sanitize_text_field($_POST['policy_status']));
@@ -74,7 +106,7 @@ function user_pdf_manager_save_post($post_id){
         // Check if the field is set in $_POST
         if (isset($_POST[$field_name])) {
             // Update the corresponding post meta
-            update_post_meta($post_id, $field_name, sanitize_text_field($_POST[$field_name]));
+            update_post_meta($post_id, $field_name, esc_url_raw($_POST[$field_name]));
         }
     }
 }
