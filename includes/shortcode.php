@@ -51,17 +51,17 @@ add_shortcode('user_pdfs', function () {
 				@include plugin_dir_path(__FILE__) . 'template-parts/not-assigned-pdf.php' ?: 'Template file not found!';
 			} else { ?>
 				<div class="upm-assigned-pdf">
-					<h2 class="policy-header">Policies</h2>
+					<h2 class="policy-header"><?Php esc_html_e('Policies','user-pdf-manager') ?></h2>
 					<div class="card shadow-sm">
-						<h4 class="text-light text-center py-2 fw-bold">Summary</h4>
+						<h4 class="text-light text-center py-2 fw-bold"><?Php esc_html_e('Summary','user-pdf-manager') ?></h4>
 						<div class="summary-fields text-center bg-light rounded-top py-3">
-							<h5>Start Date & Time</h5>
+							<h5><?Php esc_html_e('Start Date & Time','user-pdf-manager') ?></h5>
 							<p><?php echo esc_html($start_date_time); ?></p>
-							<h5>End Date & Time</h5>
+							<h5><?Php esc_html_e('End Date & Time','user-pdf-manager') ?></h5>
 							<p><?php echo esc_html($end_date_time); ?></p>
 						</div>
 						<div class="summary-fields text-center bg-light rounded-bottom py-3">
-							<h5>Policy Status</h4>
+							<h5><?Php esc_html_e('Policy Status','user-pdf-manager') ?></h4>
 								<?php if (!empty($policy_status) && $policy_status == 'Expired'): ?>
 									<h5 class="policy-expired"><?php echo esc_html($policy_status); ?></h5>
 								<?php else: ?>
@@ -73,12 +73,12 @@ add_shortcode('user_pdfs', function () {
 					<?php if ($policy_status != 'Expired'): ?>
 						<div class="view-documents-container mt-3">
 							<button id="view-documents-btn">
-								VIEW DOCUMENTS
+								<?Php esc_html_e('VIEW DOCUMENTS','user-pdf-manager') ?>
 							</button>
 						</div>
 
 						<div id="pdf-list-container" class="card shadow-sm">
-							<h4 class="text-light text-center py-2">Policy Documents</h4>
+							<h4 class="text-light text-center py-2"><?Php esc_html_e('Policy Documents','user-pdf-manager') ?></h4>
 							<div id="pdf-list" class="text-center bg-light rounded py-3">
 								<ul>
 									<?php
@@ -107,7 +107,7 @@ add_shortcode('user_pdfs', function () {
 							<!-- Modal -->
 							<div id="pdf-modal">
 								<div class="pdf-viewer-container">
-									<button id="close-modal">X</button>
+									<button id="close-modal"><?php echo esc_html('X'); ?></button>
 									<iframe id="pdf-viewer" src="" allowfullscreen></iframe>
 								</div>
 							</div>
