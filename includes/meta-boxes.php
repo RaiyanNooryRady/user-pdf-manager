@@ -25,19 +25,19 @@ function user_pdf_manager_render_pdf_meta_box($post)
     }
     ?>
     <p>
-        <label for="username"><?php echo esc_html_e('Username','user-pdf-manager'); ?></label><br>
+        <label for="username"><?php esc_html_e('Username','user-pdf-manager'); ?></label><br>
         <input type="text" name="username" id="username" value="<?php echo esc_attr($username); ?>" style="width:100%;">
     </p>
     <p>
-        <label for="start_date_time"><?php echo esc_html_e('Select Start Date & Time','user-pdf-manager'); ?></label>
+        <label for="start_date_time"><?php esc_html_e('Select Start Date & Time','user-pdf-manager'); ?></label>
         <input type="datetime-local" name="start_date_time" id="start_date_time" value="<?php echo esc_attr($start_date_time); ?>" style="width:100%;">
     </p>
     <p>
-        <label for="end_date_time"><?php echo esc_html_e('Select End Date & Time','user-pdf-manager'); ?></label>
+        <label for="end_date_time"><?php esc_html_e('Select End Date & Time','user-pdf-manager'); ?></label>
         <input type="datetime-local" name="end_date_time" id="end_date_time" value="<?php echo esc_attr($end_date_time); ?>" style="width:100%;">
     </p>
     <p>
-        <label for="policy_status"><?php echo esc_html_e('Policy Status:','user-pdf-manager'); ?></label><br>
+        <label for="policy_status"><?php esc_html_e('Policy Status:','user-pdf-manager'); ?></label><br>
         <input type="text" name="policy_status" id="policy_status" value="<?php echo esc_attr($policy_status); ?>" style="width:100%;">
     </p>
     <?php
@@ -45,7 +45,7 @@ function user_pdf_manager_render_pdf_meta_box($post)
     for ($i = 1; $i <= 10; $i++) {
         ?>
         <p>
-            <label for="pdf_link<?php echo $i; ?>">PDF URL <?php echo $i; ?>:</label><br>
+            <label for="pdf_link<?php echo $i; ?>"><?PHP esc_html_e('PDF URL','user-pdf-manager'); ?> <?php echo esc_html($i . ":"); ?></label><br>
             <input type="text" name="pdf_link<?php echo $i; ?>" id="pdf_link<?php echo $i; ?>" value="<?php echo esc_attr(${"pdf_link$i"}); ?>" style="width:100%;">
         </p>
 
