@@ -13,6 +13,8 @@ function user_pdf_manager_render_pdf_meta_box($post)
     //username
     $username = get_post_meta($post->ID, 'username', true);
 
+    //id number
+    
     //start date and time
     $start_date_time = get_post_meta($post->ID, 'start_date_time', true);
 
