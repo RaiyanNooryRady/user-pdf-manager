@@ -14,7 +14,14 @@ function user_pdf_manager_render_pdf_meta_box($post)
     $username = get_post_meta($post->ID, 'username', true);
 
     //id number
-    
+    $upm_id_number=get_post_meta($post->ID,'upm_id_number', true);
+
+    //Full Name
+    $upm_full_name = get_post_meta($post->ID, 'upm_full_name', true);
+
+    //registration number
+    $upm_registration_number=get_post_meta($post->ID,'upm_registration_number', true);
+
     //start date and time
     $start_date_time = get_post_meta($post->ID, 'start_date_time', true);
 
@@ -32,6 +39,20 @@ function user_pdf_manager_render_pdf_meta_box($post)
     <p>
         <label for="username"><?php esc_html_e('Username', 'user-pdf-manager'); ?></label><br>
         <input type="text" name="username" id="username" value="<?php echo esc_attr($username); ?>" style="width:100%;">
+    </p>
+    <p>
+        <label for="upm_id_number"><?php esc_html_e('Id Number', 'user-pdf-manager'); ?></label>
+        <input type="text" name="upm_id_number" id="upm_id_number" value="<?php echo esc_attr($upm_id_number); ?>"
+            style="width:100%;">
+    </p>
+    <p>
+        <label for="upm_full_name"><?php esc_html_e('Full Name', 'user-pdf-manager'); ?></label><br>
+        <input type="text" name="upm_full_name" id="upm_full_name" value="<?php echo esc_attr($upm_full_name); ?>" style="width:100%;">
+    </p>
+    <p>
+        <label for="upm_registration_number"><?php esc_html_e('Registration Number', 'user-pdf-manager'); ?></label>
+        <input type="text" name="upm_registration_number" id="upm_registration_number" value="<?php echo esc_attr($upm_registration_number); ?>"
+            style="width:100%;">
     </p>
     <p>
         <label for="start_date_time"><?php esc_html_e('Select Start Date & Time', 'user-pdf-manager'); ?></label>
@@ -92,6 +113,15 @@ function user_pdf_manager_save_post($post_id)
 
     if (isset($_POST['username'])) {
         update_post_meta($post_id, 'username', sanitize_text_field($_POST['username']));
+    }
+    if (isset($_POST['upm_id_number'])) {
+        update_post_meta($post_id, 'upm_id_number', sanitize_text_field($_POST['upm_id_number']));
+    }
+    if (isset($_POST['upm_full_name'])) {
+        update_post_meta($post_id, 'upm_full_name', sanitize_text_field($_POST['upm_full_name']));
+    }
+    if (isset($_POST['upm_registration_number'])) {
+        update_post_meta($post_id, 'upm_registration_number', sanitize_text_field($_POST['upm_registration_number']));
     }
     if (isset($_POST['start_date_time'])) {
         update_post_meta($post_id, 'start_date_time', sanitize_text_field($_POST['start_date_time']));
