@@ -54,6 +54,11 @@ p{
     width: 100%;
     max-width: 900px;
 }
+.upm-policy-img{
+  width: 150px;
+  height: 150px;
+  margin-bottom: 20px;
+}
 .summary-fields{
   margin-top: 1px;
   font-family: Arial, sans-serif;

@@ -1,6 +1,6 @@
 <div class="upm-assigned-pdf">
     <h2 class="policy-header"><?Php esc_html_e('Policies', 'user-pdf-manager') ?></h2>
-    <img src="<?php echo plugins_url('user-pdf-manager/assets/images/insurance-policy.png', dirname(__DIR__, 2)); ?>" class="w-25" alt="">
+    <img src="<?php echo plugins_url('user-pdf-manager/assets/images/insurance-policy.png', dirname(__DIR__, 2)); ?>" class="upm-policy-img" alt="">
     <div class="card shadow-sm">
         <h4 class="text-light text-md-center p-3 fw-bold"><?Php esc_html_e('Summary', 'user-pdf-manager') ?></h4>
         <div class="summary-fields text-md-center bg-light rounded-top p-3">
