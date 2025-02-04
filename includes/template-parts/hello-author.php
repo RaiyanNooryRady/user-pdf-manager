@@ -6,4 +6,4 @@
         class="btn-get-quote text-decoration-none"><?php esc_html_e('GET A QUOTE', 'user-pdf-manager'); ?></a>
 </div>
 
-<h2 class="upm-author"><?php esc_html_e('Hello ', 'user-pdf-manager'); echo esc_html($current_user->display_name); ?></h2>
+<h2 class="upm-author"><?php //esc_html_e('Hello ', 'user-pdf-manager'); echo esc_html($current_user->display_name); ?></h2>
