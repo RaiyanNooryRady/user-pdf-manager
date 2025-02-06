@@ -124,12 +124,13 @@ function user_pdf_manager_save_post($post_id)
     if (isset($_POST['upm_registration_number'])) {
         update_post_meta($post_id, 'upm_registration_number', sanitize_text_field($_POST['upm_registration_number']));
     }
-    if (isset($_POST['start_date_time'])) {
-        update_post_meta($post_id, 'start_date_time', sanitize_text_field($_POST['start_date_time']));
+    if (isset($_POST['start_date_time']) && strtotime($_POST['start_date_time'])) {
+        update_post_meta($post_id, 'start_date_time', $_POST['start_date_time']);
     }
-    if (isset($_POST['end_date_time'])) {
-        update_post_meta($post_id, 'end_date_time', sanitize_text_field($_POST['end_date_time']));
+    if (isset($_POST['end_date_time']) && strtotime($_POST['end_date_time'])) {
+        update_post_meta($post_id, 'end_date_time', $_POST['end_date_time']);
     }
+    
     if (isset($_POST['policy_status'])) {
         update_post_meta($post_id, 'policy_status', sanitize_text_field($_POST['policy_status']));
     }
