@@ -14,13 +14,13 @@ function user_pdf_manager_render_pdf_meta_box($post)
     $username = get_post_meta($post->ID, 'username', true);
 
     //id number
-    $upm_id_number=get_post_meta($post->ID,'upm_id_number', true);
+    $upm_id_number = get_post_meta($post->ID, 'upm_id_number', true);
 
     //Full Name
     $upm_full_name = get_post_meta($post->ID, 'upm_full_name', true);
 
     //registration number
-    $upm_registration_number=get_post_meta($post->ID,'upm_registration_number', true);
+    $upm_registration_number = get_post_meta($post->ID, 'upm_registration_number', true);
 
     //start date and time
     $start_date_time = get_post_meta($post->ID, 'start_date_time', true);
@@ -32,8 +32,9 @@ function user_pdf_manager_render_pdf_meta_box($post)
     $policy_status = get_post_meta($post->ID, 'policy_status', true);
 
     // $pdf_link = get_post_meta($post->ID, 'pdf_link1', true);
+    $pdf_links = [];
     for ($i = 1; $i <= 10; $i++) {
-        ${"pdf_link$i"} = get_post_meta($post->ID, "pdf_link$i", true);
+        $pdf_links[$i] = get_post_meta($post->ID, "pdf_link$i", true);
     }
     ?>
     <p>
@@ -47,12 +48,13 @@ function user_pdf_manager_render_pdf_meta_box($post)
     </p>
     <p>
         <label for="upm_full_name"><?php esc_html_e('Full Name', 'user-pdf-manager'); ?></label><br>
-        <input type="text" name="upm_full_name" id="upm_full_name" value="<?php echo esc_attr($upm_full_name); ?>" style="width:100%;">
+        <input type="text" name="upm_full_name" id="upm_full_name" value="<?php echo esc_attr($upm_full_name); ?>"
+            style="width:100%;">
     </p>
     <p>
         <label for="upm_registration_number"><?php esc_html_e('Registration Number', 'user-pdf-manager'); ?></label>
-        <input type="text" name="upm_registration_number" id="upm_registration_number" value="<?php echo esc_attr($upm_registration_number); ?>"
-            style="width:100%;">
+        <input type="text" name="upm_registration_number" id="upm_registration_number"
+            value="<?php echo esc_attr($upm_registration_number); ?>" style="width:100%;">
     </p>
     <p>
         <label for="start_date_time"><?php esc_html_e('Select Start Date & Time', 'user-pdf-manager'); ?></label>
@@ -71,15 +73,14 @@ function user_pdf_manager_render_pdf_meta_box($post)
     </p>
     <?php
     //Displaying the custom meta fields in dashboard
-    for ($i = 1; $i <= 10; $i++) {
+    foreach ($pdf_links as $i => $pdf_link) {
         ?>
         <p>
             <label for="pdf_link<?php echo $i; ?>"><?php esc_html_e('PDF URL', 'user-pdf-manager'); ?>
                 <?php echo esc_html($i . ":"); ?></label><br>
             <input type="text" name="pdf_link<?php echo $i; ?>" id="pdf_link<?php echo $i; ?>"
-                value="<?php echo esc_attr(${"pdf_link$i"}); ?>" style="width:100%;">
+                value="<?php echo esc_attr($pdf_link); ?>" style="width:100%;">
         </p>
-
         <?php
     }
 ?>
