@@ -4,9 +4,7 @@
     <div class="card shadow-sm">
         <h4 class="text-light text-md-center p-3 fw-bold"><?Php esc_html_e('Summary', 'user-pdf-manager') ?></h4>
         <div class="summary-fields text-md-center bg-light rounded-top p-3">
-            <h5><?Php //esc_html_e('ID Number', 'user-pdf-manager') ?></h5>
             <h5 class="text-dark"><?php echo esc_html($upm_id_number); ?></h5>
-            <h5><?Php //esc_html_e('Full Name', 'user-pdf-manager') ?></h5>
             <h5 class="fw-normal"><?php echo esc_html($upm_full_name); ?></h5>
             <div class="d-flex flex-row justify-content-md-center align-items-center">
                 <h5><?Php esc_html_e('Reg:&nbsp;', 'user-pdf-manager') ?></h5>
