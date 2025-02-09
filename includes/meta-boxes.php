@@ -68,8 +68,12 @@ function user_pdf_manager_render_pdf_meta_box($post)
     </p>
     <p>
         <label for="policy_status"><?php esc_html_e('Policy Status:', 'user-pdf-manager'); ?></label><br>
-        <input type="text" name="policy_status" id="policy_status" value="<?php echo esc_attr($policy_status); ?>"
-            style="width:100%;">
+        <select name="policy_status" id="policy_status" style="width:100%;">
+            <option value="Active" <?php selected($policy_status, 'Active'); ?>>
+                <?php esc_html_e('Active', 'user-pdf-manager'); ?></option>
+            <option value="Expired" <?php selected($policy_status, 'Expired'); ?>>
+                <?php esc_html_e('Expired', 'user-pdf-manager'); ?></option>
+        </select>
     </p>
     <?php
     //Displaying the custom meta fields in dashboard
@@ -130,7 +134,7 @@ function user_pdf_manager_save_post($post_id)
     if (isset($_POST['end_date_time']) && strtotime($_POST['end_date_time'])) {
         update_post_meta($post_id, 'end_date_time', $_POST['end_date_time']);
     }
-    
+
     if (isset($_POST['policy_status'])) {
         update_post_meta($post_id, 'policy_status', sanitize_text_field($_POST['policy_status']));
     }
