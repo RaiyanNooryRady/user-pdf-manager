@@ -23,9 +23,9 @@ add_shortcode('user_pdfs', function () {
 		while ($query->have_posts()) {
 			$query->the_post();
 
+			$pdf_links=[];
 			for ($i = 1; $i <= 10; $i++) {
-				${"pdf_link$i"} = get_post_meta(get_the_ID(), "pdf_link$i", true);
-				${"pdf_link$i"} .= '#zoom=120&toolbar=0&navpanes=0';
+				$pdf_links[$i] = get_post_meta(get_the_ID(), "pdf_link$i", true);
 			}
 			$policy_status = get_post_meta(get_the_ID(), 'policy_status', true);
 			$upm_id_number = get_post_meta(get_the_ID(), 'upm_id_number', true);
@@ -49,7 +49,14 @@ add_shortcode('user_pdfs', function () {
 
 			@include plugin_dir_path(__FILE__) . 'template-parts/hello-author.php' ?: 'Template file not found!';
 
-			$check_not_assigned = $pdf_link1 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link2 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link3 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link4 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link5 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link6 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link7 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link8 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link9 == "#zoom=120&toolbar=0&navpanes=0" && $pdf_link10 == "#zoom=120&toolbar=0&navpanes=0";
+			$check_not_assigned = true;
+
+			for($i=1;$i<=10;++$i){
+				if(!empty($pdf_links[$i])){
+					$check_not_assigned=false;
+					break;
+				}
+			}
 
 			if ($check_not_assigned) {
 				@include plugin_dir_path(__FILE__) . 'template-parts/not-assigned-pdf.php' ?: 'Template file not found!';

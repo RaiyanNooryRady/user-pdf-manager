@@ -41,14 +41,13 @@
                     <?php
                     for ($i = 1; $i <= 10; $i++) {
                         ?>
-                        <?php if (${"pdf_link$i"} != "#zoom=120&toolbar=0&navpanes=0"): ?>
+                        <?php if ($pdf_links[$i] != ""): ?>
                             <li class="py-2">
 
                                 <a href="#" class="pdf-link bi bi-file-earmark-pdf-fill"
-                                    data-pdf="<?php echo esc_url(${"pdf_link$i"}); ?>">
+                                    data-pdf="<?php echo esc_url($pdf_links[$i]); ?>">
                                     <?php
-                                    $document_text = basename(${"pdf_link$i"});
-                                    $document_text = explode('#', $document_text)[0];
+                                    $document_text = basename($pdf_links[$i]);
                                     echo $document_text;
 
                                     ?>
