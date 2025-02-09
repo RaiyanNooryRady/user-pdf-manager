@@ -1,6 +1,6 @@
 <?php
-
-add_shortcode('user_pdfs', function () {
+function user_pdf_manager_display_pdf_shortcode()
+{
 	if (!is_user_logged_in()) {
 		@include plugin_dir_path(__FILE__) . 'template-parts/not-assigned-pdf.php' ?: 'Template file not found!';
 		return '<h4 class="text-center py-2 fw-bold">You must be logged in to view your PDFs.</h4>';
@@ -23,7 +23,7 @@ add_shortcode('user_pdfs', function () {
 		while ($query->have_posts()) {
 			$query->the_post();
 
-			$pdf_links=[];
+			$pdf_links = [];
 			for ($i = 1; $i <= 10; $i++) {
 				$pdf_links[$i] = get_post_meta(get_the_ID(), "pdf_link$i", true);
 			}
@@ -51,9 +51,9 @@ add_shortcode('user_pdfs', function () {
 
 			$check_not_assigned = true;
 
-			for($i=1;$i<=10;++$i){
-				if(!empty($pdf_links[$i])){
-					$check_not_assigned=false;
+			for ($i = 1; $i <= 10; ++$i) {
+				if (!empty($pdf_links[$i])) {
+					$check_not_assigned = false;
 					break;
 				}
 			}
@@ -72,6 +72,7 @@ add_shortcode('user_pdfs', function () {
 		@include plugin_dir_path(__FILE__) . 'template-parts/not-assigned-pdf.php' ?: 'Template file not found!';
 
 	}
-});
+}
+add_shortcode('user_pdfs', 'user_pdf_manager_display_pdf_shortcode');
 
 

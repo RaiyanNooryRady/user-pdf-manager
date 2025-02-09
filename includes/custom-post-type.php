@@ -1,7 +1,6 @@
 <?php
 // Register Custom Post Type
-
-add_action('init', function () {
+function user_pdf_manager_register_custom_post_type(){
     register_post_type('user_pdfs', [
         'labels' => [
             'name' => 'User PDFs',
@@ -12,4 +11,5 @@ add_action('init', function () {
         'supports' => ['title'],
         'show_in_menu' => true,
     ]);
-});
+}
+add_action('init', 'user_pdf_manager_register_custom_post_type' );

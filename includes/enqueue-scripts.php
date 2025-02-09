@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) {
 
 //Enqueue Scripts
 
-function upm_assets_loader()
+function user_pdf_manager_assets_loader()
 {
 
     // Enqueue styles
@@ -35,4 +35,4 @@ function upm_assets_loader()
     );
 }
 
-add_action("wp_enqueue_scripts", "upm_assets_loader");
+add_action("wp_enqueue_scripts", "user_pdf_manager_assets_loader");
