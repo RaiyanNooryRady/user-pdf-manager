@@ -31,7 +31,6 @@ p{
 }
 .upm-not-assigned-pdf .card .no-policy{
     background-color: var(--upm-primary-color);
-    margin-top: 80px;
     padding: 0px 10px;
     font-family: Arial, sans-serif;
 }
