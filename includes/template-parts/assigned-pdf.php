@@ -1,23 +1,23 @@
 <div class="upm-assigned-pdf">
-    <h2 class="policy-header"><?Php esc_html_e('Policies', 'user-pdf-manager') ?></h2>
+    <h2 class="policy-header"><?Php esc_html_e('Policies', 'upm-user-pdf-manager') ?></h2>
     <div class="card shadow-sm">
-        <h4 class="text-light text-md-center p-3 fw-bold"><?Php esc_html_e('Summary', 'user-pdf-manager') ?></h4>
+        <h4 class="text-light text-md-center p-3 fw-bold"><?Php esc_html_e('Summary', 'upm-user-pdf-manager') ?></h4>
         <div class="summary-fields text-md-center bg-light rounded-top p-3">
             <h5 class="text-dark"><?php echo esc_html($upm_id_number); ?></h5>
             <h5 class="fw-normal"><?php echo esc_html($upm_full_name); ?></h5>
             <div class="d-flex flex-row justify-content-md-center align-items-center">
-                <h5><?Php esc_html_e('Reg:&nbsp;', 'user-pdf-manager') ?></h5>
+                <h5><?Php esc_html_e('Reg:&nbsp;', 'upm-user-pdf-manager') ?></h5>
                 <h5 class="fw-normal text-dark"><?php echo esc_html($upm_registration_number); ?></h5>
             </div>
         </div>
         <div class="summary-fields text-md-center bg-light p-3">
-            <h5><?Php esc_html_e('Start Date & Time', 'user-pdf-manager') ?></h5>
+            <h5><?Php esc_html_e('Start Date & Time', 'upm-user-pdf-manager') ?></h5>
             <p><?php echo esc_html($start_date_time); ?></p>
-            <h5><?Php esc_html_e('End Date & Time', 'user-pdf-manager') ?></h5>
+            <h5><?Php esc_html_e('End Date & Time', 'upm-user-pdf-manager') ?></h5>
             <p><?php echo esc_html($end_date_time); ?></p>
         </div>
         <div class="summary-fields text-md-center bg-light rounded-bottom p-3">
-            <h5><?Php esc_html_e('Policy Status', 'user-pdf-manager') ?></h4>
+            <h5><?Php esc_html_e('Policy Status', 'upm-user-pdf-manager') ?></h4>
                 <?php if (!empty($policy_status) && $policy_status == 'Expired'): ?>
                     <h5 class="policy-expired"><?php echo esc_html($policy_status); ?></h5>
                 <?php else: ?>
@@ -29,12 +29,12 @@
     <?php if ($policy_status != 'Expired'): ?>
         <div class="view-documents-container mt-3">
             <button id="view-documents-btn">
-                <?Php esc_html_e('VIEW DOCUMENTS', 'user-pdf-manager') ?>
+                <?Php esc_html_e('VIEW DOCUMENTS', 'upm-user-pdf-manager') ?>
             </button>
         </div>
 
         <div id="pdf-list-container" class="card shadow-sm">
-            <h4 class="text-light text-md-center p-3"><?Php esc_html_e('Policy Documents', 'user-pdf-manager') ?></h4>
+            <h4 class="text-light text-md-center p-3"><?Php esc_html_e('Policy Documents', 'upm-user-pdf-manager') ?></h4>
             <div id="pdf-list" class="text-md-center bg-light rounded p-3">
                 <ul>
                     <?php

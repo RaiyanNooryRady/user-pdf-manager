@@ -38,41 +38,41 @@ function user_pdf_manager_render_pdf_meta_box($post)
     }
     ?>
     <p>
-        <label for="username"><?php esc_html_e('Username', 'user-pdf-manager'); ?></label><br>
+        <label for="username"><?php esc_html_e('Username', 'upm-user-pdf-manager'); ?></label><br>
         <input type="text" name="username" id="username" value="<?php echo esc_attr($username); ?>" style="width:100%;">
     </p>
     <p>
-        <label for="upm_id_number"><?php esc_html_e('Id Number', 'user-pdf-manager'); ?></label>
+        <label for="upm_id_number"><?php esc_html_e('Id Number', 'upm-user-pdf-manager'); ?></label>
         <input type="text" name="upm_id_number" id="upm_id_number" value="<?php echo esc_attr($upm_id_number); ?>"
             style="width:100%;">
     </p>
     <p>
-        <label for="upm_full_name"><?php esc_html_e('Full Name', 'user-pdf-manager'); ?></label><br>
+        <label for="upm_full_name"><?php esc_html_e('Full Name', 'upm-user-pdf-manager'); ?></label><br>
         <input type="text" name="upm_full_name" id="upm_full_name" value="<?php echo esc_attr($upm_full_name); ?>"
             style="width:100%;">
     </p>
     <p>
-        <label for="upm_registration_number"><?php esc_html_e('Registration Number', 'user-pdf-manager'); ?></label>
+        <label for="upm_registration_number"><?php esc_html_e('Registration Number', 'upm-user-pdf-manager'); ?></label>
         <input type="text" name="upm_registration_number" id="upm_registration_number"
             value="<?php echo esc_attr($upm_registration_number); ?>" style="width:100%;">
     </p>
     <p>
-        <label for="start_date_time"><?php esc_html_e('Select Start Date & Time', 'user-pdf-manager'); ?></label>
+        <label for="start_date_time"><?php esc_html_e('Select Start Date & Time', 'upm-user-pdf-manager'); ?></label>
         <input type="datetime-local" name="start_date_time" id="start_date_time"
             value="<?php echo esc_attr($start_date_time); ?>" style="width:100%;">
     </p>
     <p>
-        <label for="end_date_time"><?php esc_html_e('Select End Date & Time', 'user-pdf-manager'); ?></label>
+        <label for="end_date_time"><?php esc_html_e('Select End Date & Time', 'upm-user-pdf-manager'); ?></label>
         <input type="datetime-local" name="end_date_time" id="end_date_time" value="<?php echo esc_attr($end_date_time); ?>"
             style="width:100%;">
     </p>
     <p>
-        <label for="policy_status"><?php esc_html_e('Policy Status:', 'user-pdf-manager'); ?></label><br>
+        <label for="policy_status"><?php esc_html_e('Policy Status:', 'upm-user-pdf-manager'); ?></label><br>
         <select name="policy_status" id="policy_status" style="width:100%;">
             <option value="Active" <?php selected($policy_status, 'Active'); ?>>
-                <?php esc_html_e('Active', 'user-pdf-manager'); ?></option>
+                <?php esc_html_e('Active', 'upm-user-pdf-manager'); ?></option>
             <option value="Expired" <?php selected($policy_status, 'Expired'); ?>>
-                <?php esc_html_e('Expired', 'user-pdf-manager'); ?></option>
+                <?php esc_html_e('Expired', 'upm-user-pdf-manager'); ?></option>
         </select>
     </p>
     <?php
@@ -80,7 +80,7 @@ function user_pdf_manager_render_pdf_meta_box($post)
     foreach ($pdf_links as $i => $pdf_link) {
         ?>
         <p>
-            <label for="pdf_link<?php echo $i; ?>"><?php esc_html_e('PDF URL', 'user-pdf-manager'); ?>
+            <label for="pdf_link<?php echo $i; ?>"><?php esc_html_e('PDF URL', 'upm-user-pdf-manager'); ?>
                 <?php echo esc_html($i . ":"); ?></label><br>
             <input type="text" name="pdf_link<?php echo $i; ?>" id="pdf_link<?php echo $i; ?>"
                 value="<?php echo esc_attr($pdf_link); ?>" style="width:100%;">
