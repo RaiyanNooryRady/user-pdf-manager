@@ -42,8 +42,7 @@
                         ?>
                         <?php if ($pdf_links[$i] != ""): ?>
                             <li class="py-2">
-
-                                <a href="#" class="pdf-link bi bi-file-earmark-pdf-fill"
+                                <a href="" class="pdf-link bi bi-file-earmark-pdf-fill"
                                     data-pdf="<?php echo esc_url($pdf_links[$i]); ?>">
                                     <?php
                                     $document_text = basename($pdf_links[$i]);
