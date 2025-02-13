@@ -8,7 +8,7 @@ $button_link = get_option('user_pdf_manager_button_link', '#');
     one day or more', 'upm-user-pdf-manager'); ?></div>
 <div class="text-light text-center py-3 mb-3">
     <a href="<?php echo esc_url($button_link); ?>" target="_blank"
-        class="btn-get-quote text-decoration-none"><?php esc_html_e($button_text, 'upm-user-pdf-manager'); ?></a>
+        class="btn-get-quote text-decoration-none"><?php echo esc_html($button_text); ?></a>
 </div>
 
 <h2 class="upm-author"><?php esc_html_e('Hello ', 'upm-user-pdf-manager'); echo esc_html($current_user->display_name); ?></h2>
