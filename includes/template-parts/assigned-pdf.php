@@ -47,8 +47,7 @@
                                     data-pdf="<?php echo esc_url($pdf_links[$i]); ?>">
                                     <?php
                                     $document_text = basename($pdf_links[$i]);
-                                    echo $document_text;
-
+                                    echo esc_html($document_text);
                                     ?>
                                 </a>
                             </li>
