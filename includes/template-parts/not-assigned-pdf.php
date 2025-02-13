@@ -10,7 +10,7 @@ $button_link = get_option('user_pdf_manager_button_link', '#');
             <h4 class="text-light"><?php esc_html_e('You have no active temporary policies', 'upm-user-pdf-manager'); ?></h4>
             <div class="text-light text-center py-3">
                 <a href="<?php echo esc_url($button_link); ?>" target="_blank"
-                    class="p-3 btn-get-quote text-decoration-none"><?php esc_html_e($button_text, 'upm-user-pdf-manager'); ?></a>
+                    class="p-3 btn-get-quote text-decoration-none"><?php echo esc_html($button_text); ?></a>
             </div>
         </div>
         <h5 class="policy-header mt-3"><?php esc_html_e('Past Policies', 'upm-user-pdf-manager'); ?></h5>
