@@ -80,9 +80,9 @@ function user_pdf_manager_render_pdf_meta_box($post)
     foreach ($pdf_links as $i => $pdf_link) {
         ?>
         <p>
-            <label for="pdf_link<?php echo $i; ?>"><?php esc_html_e('PDF URL', 'upm-user-pdf-manager'); ?>
+            <label for="pdf_link<?php echo esc_html($i); ?>"><?php esc_html_e('PDF URL', 'upm-user-pdf-manager'); ?>
                 <?php echo esc_html($i . ":"); ?></label><br>
-            <input type="text" name="pdf_link<?php echo $i; ?>" id="pdf_link<?php echo $i; ?>"
+            <input type="text" name="pdf_link<?php echo esc_html($i); ?>" id="pdf_link<?php echo esc_html($i); ?>"
                 value="<?php echo esc_attr($pdf_link); ?>" style="width:100%;">
         </p>
         <?php
