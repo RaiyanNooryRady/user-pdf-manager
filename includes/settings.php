@@ -14,7 +14,7 @@ add_action('admin_menu', function () {
 // Render the settings page
 function user_pdf_manager_render_settings_page() {
     if (!current_user_can('manage_options')) {
-        wp_die(__('You do not have sufficient permissions to access this page.', 'upm-user-pdf-manager'));
+        wp_die(esc_html_e('You do not have sufficient permissions to access this page.', 'upm-user-pdf-manager'));
     }
     ?>
     <div class="wrap">
@@ -29,11 +29,16 @@ function user_pdf_manager_render_settings_page() {
     </div>
     <?php
 }
-
+function upm_user_pdf_manager_sanitize_button_text($input){
+    return sanitize_text_field($input);
+}
+function upm_user_pdf_manager_sanitize_button_link($input){
+    return esc_url_raw($input);
+}
 // Register settings, fields, and sections
 add_action('admin_init', function () {
-    register_setting('user_pdf_manager_settings_group', 'user_pdf_manager_button_text');
-    register_setting('user_pdf_manager_settings_group', 'user_pdf_manager_button_link');
+    register_setting('user_pdf_manager_settings_group', 'user_pdf_manager_button_text',['upm_user_pdf_manager_sanitize_button_text']);
+    register_setting('user_pdf_manager_settings_group', 'user_pdf_manager_button_link',['upm_user_pdf_manager_sanitize_button_link']);
 
     add_settings_section(
         'user_pdf_manager_button_settings_section',
@@ -61,7 +66,7 @@ add_action('admin_init', function () {
 
 // ✅ Empty callback function for section description
 function user_pdf_manager_section_callback() {
-    echo '<p>' . __('Configure button settings here.', 'upm-user-pdf-manager') . '</p>';
+    echo '<p>' . esc_html_e('Configure button settings here.', 'upm-user-pdf-manager') . '</p>';
 }
 
 // Callback function to render the button text field
