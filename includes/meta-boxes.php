@@ -95,13 +95,13 @@ function user_pdf_manager_save_post($post_id)
 {
 
     // ✅ Step 1: Check if the nonce is set and valid
-
     if (
         !isset($_POST['user_pdf_manager_save_nonce']) ||
-        !wp_verify_nonce(sanitize_text_field($_POST['user_pdf_manager_save_nonce']), 'user_pdf_manager_save_nonce_action')
+        !wp_verify_nonce(wp_unslash(sanitize_text_field($_POST['user_pdf_manager_save_nonce'])), 'user_pdf_manager_save_nonce_action')
     ) {
         return;
     }
+    
 
 
     // ✅ Step 2: Check if the user has permission to edit this post
@@ -117,7 +117,7 @@ function user_pdf_manager_save_post($post_id)
     // ✅ Step 4: Sanitize and save meta fields
 
     if (isset($_POST['username'])) {
-        update_post_meta($post_id, 'username', sanitize_text_field($_POST['username']));
+        update_post_meta($post_id, 'username', wp_unslash(sanitize_text_field($_POST['username'])));
     }
     if (isset($_POST['upm_id_number'])) {
         update_post_meta($post_id, 'upm_id_number', sanitize_text_field($_POST['upm_id_number']));
