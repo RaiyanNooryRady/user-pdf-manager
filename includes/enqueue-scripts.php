@@ -18,14 +18,14 @@ function user_pdf_manager_assets_loader()
     );
     wp_enqueue_style(
         'bootstrap-icon-css', // Handle name for the style
-        '//cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css', // Path to the CSS file
+        plugin_dir_url(__FILE__) . '../assets/bootstrap/icons/font/bootstrap-icons.min.css', // Path to the CSS file
         array(), // Dependencies (if any)
         '5.3.3' // Version number
     );
     wp_enqueue_style('style-css', plugin_dir_url(__FILE__) . '../assets/css/style.css', array(), '1.0.0');
 
     // Enqueue scripts
-    wp_enqueue_script('bootstrap-js', plugin_dir_url(__FILE__) . '../assets/bootstrap/js/bootstrap.bundle.min.js', array(), '1.0.0');
+    wp_enqueue_script('bootstrap-js', plugin_dir_url(__FILE__) . '../assets/bootstrap/js/bootstrap.bundle.min.js', array(), '1.0.0',true);
     wp_enqueue_script(
         'script-js',
         plugin_dir_url(__FILE__) . '../assets/js/script.js',
