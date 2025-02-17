@@ -97,7 +97,7 @@ function user_pdf_manager_save_post($post_id)
     // ✅ Step 1: Check if the nonce is set and valid
     if (
         !isset($_POST['user_pdf_manager_save_nonce']) ||
-        !wp_verify_nonce(wp_unslash(sanitize_text_field($_POST['user_pdf_manager_save_nonce'])), 'user_pdf_manager_save_nonce_action')
+        !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['user_pdf_manager_save_nonce'])), 'user_pdf_manager_save_nonce_action')
     ) {
         return;
     }
@@ -117,26 +117,26 @@ function user_pdf_manager_save_post($post_id)
     // ✅ Step 4: Sanitize and save meta fields
 
     if (isset($_POST['username'])) {
-        update_post_meta($post_id, 'username', wp_unslash(sanitize_text_field($_POST['username'])));
+        update_post_meta($post_id, 'username', wp_unslash(sanitize_text_field(wp_unslash($_POST['username']))));
     }
     if (isset($_POST['upm_id_number'])) {
-        update_post_meta($post_id, 'upm_id_number', sanitize_text_field($_POST['upm_id_number']));
+        update_post_meta($post_id, 'upm_id_number', sanitize_text_field(wp_unslash($_POST['upm_id_number'])));
     }
     if (isset($_POST['upm_full_name'])) {
-        update_post_meta($post_id, 'upm_full_name', sanitize_text_field($_POST['upm_full_name']));
+        update_post_meta($post_id, 'upm_full_name', sanitize_text_field(wp_unslash($_POST['upm_full_name'])));
     }
     if (isset($_POST['upm_registration_number'])) {
-        update_post_meta($post_id, 'upm_registration_number', sanitize_text_field($_POST['upm_registration_number']));
+        update_post_meta($post_id, 'upm_registration_number', sanitize_text_field(wp_unslash($_POST['upm_registration_number'])));
     }
-    if (isset($_POST['start_date_time']) && strtotime($_POST['start_date_time'])) {
-        update_post_meta($post_id, 'start_date_time', $_POST['start_date_time']);
+    if (isset($_POST['start_date_time']) && strtotime(sanitize_text_field(wp_unslash($_POST['start_date_time'])))) {
+        update_post_meta($post_id, 'start_date_time', sanitize_text_field(wp_unslash($_POST['start_date_time'])));
     }
-    if (isset($_POST['end_date_time']) && strtotime($_POST['end_date_time'])) {
-        update_post_meta($post_id, 'end_date_time', $_POST['end_date_time']);
+    if (isset($_POST['end_date_time']) && strtotime(sanitize_text_field(wp_unslash($_POST['end_date_time'])))) {
+        update_post_meta($post_id, 'end_date_time', sanitize_text_field(wp_unslash($_POST['end_date_time'])));
     }
 
     if (isset($_POST['policy_status'])) {
-        update_post_meta($post_id, 'policy_status', sanitize_text_field($_POST['policy_status']));
+        update_post_meta($post_id, 'policy_status', sanitize_text_field(wp_unslash($_POST['policy_status'])));
     }
     for ($i = 1; $i <= 10; $i++) {
         // Generate the field name dynamically
@@ -144,7 +144,7 @@ function user_pdf_manager_save_post($post_id)
         // Check if the field is set in $_POST
         if (isset($_POST[$field_name])) {
             // Update the corresponding post meta
-            update_post_meta($post_id, $field_name, esc_url_raw($_POST[$field_name]));
+            update_post_meta($post_id, $field_name, esc_url_raw(wp_unslash($_POST[$field_name])));
         }
     }
 }
